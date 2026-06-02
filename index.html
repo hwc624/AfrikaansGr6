@@ -3,862 +3,846 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Afrikaans Graad 6 Oefening – Bryanston</title>
+<title>Afrikaans Graad 6 Oefening</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f0f4ff;
-    --card: #ffffff;
-    --primary: #2c5f9e;
-    --accent: #f4a020;
-    --green: #27ae60;
-    --red: #e74c3c;
-    --text: #1a1a2e;
-    --muted: #6b7280;
-    --radius: 18px;
-    --shadow: 0 8px 32px rgba(44,95,158,0.10);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#f0f4ff;color:#1a1a2e;min-height:100vh}
+header{background:linear-gradient(135deg,#2c5f9e,#1a3a6b);color:#fff;padding:18px 20px 14px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 18px rgba(26,58,107,.25)}
+.badge{width:50px;height:50px;background:#f4a020;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:10px;font-weight:800;color:#1a3a6b;text-align:center;line-height:1.1;flex-shrink:0}
+header h1{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;line-height:1.2}
+header p{font-size:.78rem;opacity:.8;margin-top:2px}
+.screen{display:none;padding:20px 16px;max-width:540px;margin:0 auto}
+.screen.active{display:block}
 
-  /* HEADER */
-  header {
-    background: linear-gradient(135deg, #2c5f9e 0%, #1a3a6b 100%);
-    color: white;
-    padding: 18px 24px 14px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 4px 18px rgba(26,58,107,0.25);
-  }
-  .school-badge {
-    width: 52px; height: 52px;
-    background: var(--accent);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Baloo 2', cursive;
-    font-size: 10px; font-weight: 800;
-    color: #1a3a6b;
-    text-align: center; line-height: 1.1;
-    flex-shrink: 0;
-  }
-  header h1 { font-family: 'Baloo 2', cursive; font-size: 1.35rem; font-weight: 800; line-height: 1.2; }
-  header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; }
+#topics h2{font-family:'Baloo 2',cursive;font-size:1.4rem;color:#2c5f9e;margin-bottom:4px}
+#topics .sub{color:#6b7280;font-size:.86rem;margin-bottom:18px}
+.tgrid{display:flex;flex-direction:column;gap:11px}
+.tbtn{background:#fff;border:2.5px solid transparent;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:13px;box-shadow:0 6px 24px rgba(44,95,158,.08);transition:all .18s;text-align:left}
+.tbtn:hover{border-color:#2c5f9e;transform:translateY(-2px)}
+.ticon{font-size:1.5rem;width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tbtn .tt{font-weight:800;font-size:.98rem}
+.tbtn .td{font-size:.76rem;color:#6b7280;margin-top:1px}
+.tpts{margin-left:auto;background:#2c5f9e;color:#fff;border-radius:20px;padding:3px 10px;font-size:.73rem;font-weight:700;flex-shrink:0}
+.typebadges{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.typebadge{font-size:.58rem;padding:2px 5px;border-radius:4px;font-weight:700}
+.tb-mcq{background:#e8eeff;color:#2c5f9e}
+.tb-type{background:#fef3e0;color:#e67e22}
+.tb-tf{background:#eafaf1;color:#27ae60}
+.tb-match{background:#fdf0f8;color:#8e44ad}
+.tb-fill{background:#fff3e0;color:#d35400}
+.tb-sen{background:#fce4ec;color:#c0392b}
 
-  /* TOPIC MENU */
-  #topic-screen {
-    padding: 24px 16px;
-    max-width: 540px; margin: 0 auto;
-  }
-  #topic-screen h2 {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.4rem; color: var(--primary);
-    margin-bottom: 6px;
-  }
-  #topic-screen p.sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 20px; }
+.qheader{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.backbtn{background:#fff;border:none;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:1rem;box-shadow:0 4px 14px rgba(0,0,0,.06);color:#2c5f9e;font-weight:700}
+.qlabel{font-family:'Baloo 2',cursive;font-size:1.05rem;color:#2c5f9e;font-weight:800}
+.qctr{margin-left:auto;font-size:.8rem;color:#6b7280;font-weight:700}
+.pbar{height:7px;background:#dde4f5;border-radius:7px;margin-bottom:20px;overflow:hidden}
+.pfill{height:100%;background:linear-gradient(90deg,#2c5f9e,#f4a020);border-radius:7px;transition:width .4s}
+.qcard{background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 6px 24px rgba(44,95,158,.08);margin-bottom:14px;animation:fsl .3s ease}
+@keyframes fsl{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.qtag{display:inline-block;font-size:.68rem;font-weight:800;border-radius:6px;padding:3px 8px;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+.tag-mcq{background:#e8eeff;color:#2c5f9e}
+.tag-type{background:#fef3e0;color:#e67e22}
+.tag-tf{background:#eafaf1;color:#27ae60}
+.tag-match{background:#fdf0f8;color:#8e44ad}
+.tag-fill{background:#fff3e0;color:#d35400}
+.tag-sen{background:#fce4ec;color:#c0392b}
+.qtxt{font-size:1.02rem;font-weight:700;line-height:1.5}
+.qsen{font-size:.95rem;color:#2c5f9e;margin-top:8px;font-weight:800;background:#f7f9ff;padding:10px 14px;border-radius:10px;border-left:4px solid #2c5f9e}
 
-  .topic-grid { display: flex; flex-direction: column; gap: 12px; }
-  .topic-btn {
-    background: var(--card);
-    border: 2.5px solid transparent;
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 14px;
-    box-shadow: var(--shadow);
-    transition: all 0.18s;
-    text-align: left;
-  }
-  .topic-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
-  .topic-icon {
-    font-size: 1.8rem;
-    width: 46px; height: 46px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .topic-btn .t-title { font-weight: 800; font-size: 1rem; color: var(--text); }
-  .topic-btn .t-desc { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
-  .t-pts { margin-left: auto; background: var(--primary); color: white; border-radius: 20px; padding: 3px 10px; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.opts{display:flex;flex-direction:column;gap:9px;margin-top:15px}
+.obtn{background:#f7f9ff;border:2.5px solid #dde4f5;border-radius:12px;padding:12px 15px;text-align:left;cursor:pointer;font-size:.93rem;font-family:'Nunito',sans-serif;font-weight:700;color:#1a1a2e;transition:all .15s;display:flex;align-items:center;gap:10px}
+.obtn:hover:not(.done){border-color:#2c5f9e;background:#eef2ff}
+.obtn.ok{border-color:#27ae60;background:#eafaf1;color:#27ae60}
+.obtn.no{border-color:#e74c3c;background:#fdecea;color:#e74c3c}
+.obtn.done{cursor:default}
+.olet{width:26px;height:26px;border-radius:50%;background:#2c5f9e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:900;flex-shrink:0;transition:background .15s}
+.obtn.ok .olet{background:#27ae60}
+.obtn.no .olet{background:#e74c3c}
 
-  /* QUIZ SCREEN */
-  #quiz-screen { display: none; padding: 20px 16px; max-width: 540px; margin: 0 auto; }
+.tf-row{display:flex;gap:12px;margin-top:15px}
+.tf-btn{flex:1;padding:16px;border-radius:14px;border:2.5px solid #dde4f5;background:#f7f9ff;cursor:pointer;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;text-align:center;transition:all .15s}
+.tf-btn:hover:not(.done){border-color:#2c5f9e;transform:translateY(-2px)}
+.tf-btn.ok{border-color:#27ae60;background:#eafaf1;color:#27ae60}
+.tf-btn.no{border-color:#e74c3c;background:#fdecea;color:#e74c3c}
+.tf-btn.done{cursor:default}
+.tf-btn .tf-icon{font-size:1.6rem;display:block;margin-bottom:4px}
 
-  .quiz-header {
-    display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
-  }
-  .back-btn {
-    background: var(--card); border: none; border-radius: 10px;
-    padding: 8px 12px; cursor: pointer; font-size: 1rem; box-shadow: var(--shadow);
-    color: var(--primary); font-weight: 700;
-  }
-  .quiz-topic-label { font-family: 'Baloo 2', cursive; font-size: 1.1rem; color: var(--primary); font-weight: 800; }
-  .q-counter { margin-left: auto; font-size: 0.82rem; color: var(--muted); font-weight: 700; }
+.type-area{margin-top:15px}
+.type-row{display:flex;gap:10px}
+.type-input{flex:1;border:2.5px solid #dde4f5;border-radius:12px;padding:12px 14px;font-size:.95rem;font-family:'Nunito',sans-serif;font-weight:700;outline:none;transition:border .15s}
+.type-input:focus{border-color:#2c5f9e}
+.type-input.ok{border-color:#27ae60;background:#eafaf1}
+.type-input.no{border-color:#e74c3c;background:#fdecea}
+.type-submit{background:#2c5f9e;color:#fff;border:none;border-radius:12px;padding:12px 18px;font-size:.9rem;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer}
+.type-submit:hover{background:#1a3a6b}
+.type-submit:disabled{background:#b0bec5;cursor:default}
+.type-hint{font-size:.78rem;color:#6b7280;margin-top:6px;font-style:italic}
+.correct-ans-show{margin-top:8px;padding:8px 12px;background:#eafaf1;border-radius:8px;font-weight:800;color:#27ae60;font-size:.9rem}
 
-  .progress-bar { height: 8px; background: #dde4f5; border-radius: 8px; margin-bottom: 22px; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 8px; transition: width 0.4s; }
+/* SENTENCE */
+.sen-area{margin-top:15px}
+.sen-textarea{width:100%;border:2.5px solid #dde4f5;border-radius:12px;padding:12px 14px;font-size:.93rem;font-family:'Nunito',sans-serif;font-weight:600;outline:none;resize:vertical;min-height:70px;transition:border .15s;line-height:1.5}
+.sen-textarea:focus{border-color:#2c5f9e}
+.sen-textarea.ok{border-color:#27ae60;background:#eafaf1}
+.sen-textarea.no{border-color:#e74c3c;background:#fdecea}
+.sen-submit{margin-top:10px;background:#c0392b;color:#fff;border:none;border-radius:12px;padding:12px 18px;font-size:.9rem;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;width:100%}
+.sen-submit:hover{background:#96281b}
+.sen-submit:disabled{background:#b0bec5;cursor:default}
+.sen-reqs{margin-top:8px;font-size:.78rem;color:#6b7280}
+.sen-reqs .chk{color:#27ae60;font-weight:800}
+.sen-reqs .nochk{color:#e74c3c;font-weight:800}
+.sen-example{margin-top:8px;padding:10px 14px;background:#fef9ec;border-radius:10px;border-left:4px solid #f4a020;font-size:.85rem;line-height:1.5}
 
-  .question-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 22px 20px;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-    animation: fadeSlide 0.3s ease;
-  }
-  @keyframes fadeSlide { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+.match-area{margin-top:15px}
+.match-instr{font-size:.82rem;color:#6b7280;margin-bottom:10px}
+.match-grid{display:flex;gap:12px}
+.match-col{flex:1;display:flex;flex-direction:column;gap:8px}
+.match-item{padding:10px 12px;border-radius:10px;border:2.5px solid #dde4f5;background:#f7f9ff;font-weight:700;font-size:.88rem;cursor:pointer;text-align:center;transition:all .15s;user-select:none}
+.match-item:hover:not(.done){border-color:#2c5f9e;background:#eef2ff}
+.match-item.selected{border-color:#f4a020;background:#fef9ec;box-shadow:0 0 0 3px rgba(244,160,32,.25)}
+.match-item.ok{border-color:#27ae60;background:#eafaf1;color:#27ae60}
+.match-item.no{border-color:#e74c3c;background:#fdecea;color:#e74c3c}
+.match-item.done{cursor:default}
+.match-score{margin-top:10px;font-size:.85rem;font-weight:700;color:#2c5f9e}
 
-  .q-type-tag {
-    display: inline-block;
-    background: #e8eeff;
-    color: var(--primary);
-    font-size: 0.72rem; font-weight: 800;
-    border-radius: 6px; padding: 3px 8px;
-    margin-bottom: 10px; letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .q-text { font-size: 1.05rem; font-weight: 700; line-height: 1.5; color: var(--text); }
-  .q-sentence { font-size: 0.92rem; color: var(--muted); margin-top: 6px; font-style: italic; }
+/* FEEDBACK */
+.fb{border-radius:13px;padding:16px 18px;margin-top:13px;font-size:.86rem;line-height:1.7;display:none}
+.fb.show{display:block;animation:fsl .3s ease}
+.fb.fbok{background:#eafaf1;border:2px solid #27ae60}
+.fb.fbno{background:#fef9ec;border:2px solid #f4a020}
+.fb .fbt{font-weight:900;font-size:.96rem;margin-bottom:8px}
+.fb-section{margin-top:8px;padding:8px 12px;border-radius:8px}
+.fb-af{background:rgba(44,95,158,.06)}
+.fb-zh{background:rgba(244,160,32,.08)}
+.fb-en{background:rgba(39,174,96,.06)}
+.fb-lang{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;display:block}
+.fb-lang-af{color:#2c5f9e}
+.fb-lang-zh{color:#e67e22}
+.fb-lang-en{color:#27ae60}
 
-  /* OPTIONS */
-  .options { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
-  .opt-btn {
-    background: #f7f9ff;
-    border: 2.5px solid #dde4f5;
-    border-radius: 12px;
-    padding: 13px 16px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    color: var(--text);
-    transition: all 0.15s;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .opt-btn:hover:not(:disabled) { border-color: var(--primary); background: #eef2ff; }
-  .opt-btn.correct { border-color: var(--green); background: #eafaf1; color: var(--green); }
-  .opt-btn.wrong { border-color: var(--red); background: #fdecea; color: var(--red); }
-  .opt-btn:disabled { cursor: default; }
-  .opt-letter {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--primary); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem; font-weight: 900; flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  .opt-btn.correct .opt-letter { background: var(--green); }
-  .opt-btn.wrong .opt-letter { background: var(--red); }
+.nbtn{width:100%;background:linear-gradient(135deg,#2c5f9e,#1a3a6b);color:#fff;border:none;border-radius:13px;padding:14px;font-size:.98rem;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;margin-top:13px;box-shadow:0 4px 14px rgba(44,95,158,.25);transition:transform .15s;display:none}
+.nbtn:hover{transform:translateY(-2px)}
+.nbtn.show{display:block;animation:fsl .25s ease}
 
-  /* INPUT type */
-  .input-row { display: flex; gap: 10px; margin-top: 16px; }
-  .q-input {
-    flex: 1; border: 2.5px solid #dde4f5; border-radius: 12px;
-    padding: 12px 14px; font-size: 0.95rem; font-family: 'Nunito', sans-serif; font-weight: 700;
-    outline: none; transition: border 0.15s;
-  }
-  .q-input:focus { border-color: var(--primary); }
-  .q-input.correct { border-color: var(--green); background: #eafaf1; }
-  .q-input.wrong { border-color: var(--red); background: #fdecea; }
-  .submit-btn {
-    background: var(--primary); color: white; border: none;
-    border-radius: 12px; padding: 12px 18px; font-size: 0.9rem;
-    font-family: 'Nunito', sans-serif; font-weight: 800; cursor: pointer;
-    transition: background 0.15s;
-  }
-  .submit-btn:hover { background: #1a3a6b; }
-  .submit-btn:disabled { background: #b0bec5; cursor: default; }
-
-  /* FEEDBACK */
-  .feedback-box {
-    border-radius: 14px; padding: 16px 18px; margin-top: 14px;
-    font-size: 0.88rem; line-height: 1.6; display: none;
-  }
-  .feedback-box.show { display: block; animation: fadeSlide 0.3s ease; }
-  .feedback-box.correct-fb { background: #eafaf1; border: 2px solid var(--green); }
-  .feedback-box.wrong-fb { background: #fef9ec; border: 2px solid var(--accent); }
-  .feedback-box .fb-title { font-weight: 900; font-size: 1rem; margin-bottom: 6px; }
-  .feedback-box .fb-en { color: var(--muted); font-style: italic; margin-top: 4px; }
-
-  .next-btn {
-    width: 100%; background: linear-gradient(135deg, var(--primary), #1a3a6b);
-    color: white; border: none; border-radius: 14px;
-    padding: 15px; font-size: 1rem; font-family: 'Nunito', sans-serif;
-    font-weight: 800; cursor: pointer; margin-top: 14px;
-    box-shadow: 0 4px 14px rgba(44,95,158,0.25);
-    transition: transform 0.15s;
-    display: none;
-  }
-  .next-btn:hover { transform: translateY(-2px); }
-  .next-btn.show { display: block; animation: fadeSlide 0.25s ease; }
-
-  /* SCORE SCREEN */
-  #score-screen {
-    display: none; padding: 32px 20px;
-    max-width: 540px; margin: 0 auto; text-align: center;
-  }
-  .score-circle {
-    width: 140px; height: 140px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
-    box-shadow: 0 8px 28px rgba(44,95,158,0.3);
-  }
-  .score-circle .big-num { font-family: 'Baloo 2', cursive; font-size: 2.8rem; color: white; font-weight: 800; line-height: 1; }
-  .score-circle .big-denom { font-size: 1rem; color: rgba(255,255,255,0.8); }
-  #score-screen h2 { font-family: 'Baloo 2', cursive; font-size: 1.6rem; color: var(--primary); margin-bottom: 8px; }
-  #score-screen p { color: var(--muted); font-size: 0.92rem; margin-bottom: 24px; }
-  .score-actions { display: flex; flex-direction: column; gap: 12px; }
-  .score-actions button {
-    padding: 14px; border-radius: 14px; border: none; font-size: 0.95rem;
-    font-family: 'Nunito', sans-serif; font-weight: 800; cursor: pointer; transition: all 0.15s;
-  }
-  .btn-retry { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(44,95,158,0.25); }
-  .btn-retry:hover { transform: translateY(-2px); }
-  .btn-menu { background: var(--card); color: var(--primary); border: 2.5px solid var(--primary) !important; }
+#done{text-align:center;padding-top:36px}
+.scirc{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2c5f9e,#f4a020);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 28px rgba(44,95,158,.3)}
+.scirc .sn{font-family:'Baloo 2',cursive;font-size:2.8rem;color:#fff;font-weight:800;line-height:1}
+.scirc .sd{font-size:1rem;color:rgba(255,255,255,.8)}
+#done h2{font-family:'Baloo 2',cursive;font-size:1.5rem;color:#2c5f9e;margin-bottom:8px}
+#done p{color:#6b7280;font-size:.9rem;margin-bottom:22px}
+.sacts{display:flex;flex-direction:column;gap:11px}
+.sacts button{padding:13px;border-radius:13px;border:none;font-size:.93rem;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;transition:all .15s}
+.srty{background:#2c5f9e;color:#fff;box-shadow:0 4px 14px rgba(44,95,158,.25)}
+.srty:hover{transform:translateY(-2px)}
+.smnu{background:#fff;color:#2c5f9e;border:2.5px solid #2c5f9e!important}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="school-badge">BPS<br>Gr.6</div>
+  <div class="badge">BPS<br>Gr.6</div>
   <div>
     <h1>Afrikaans Oefening</h1>
-    <p>Bryanston Parallel Medium • Graad 6 • EAT 9 Junie 2026</p>
+    <p>Bryanston Parallel Medium &bull; Graad 6 &bull; Toets 9 Junie 2026</p>
   </div>
 </header>
 
-<!-- TOPIC SELECTION -->
-<div id="topic-screen">
-  <h2>Kies 'n onderwerp 📚</h2>
-  <p class="sub">Oefen elke afdeling vir jou toets. Every question is different!</p>
-  <div class="topic-grid" id="topic-grid"></div>
+<div id="topics" class="screen active">
+  <h2>Kies jou onderwerp 📚</h2>
+  <p class="sub">6 soorte vrae! 6 types of questions — including writing your own sentences!</p>
+  <div class="tgrid" id="tgrid"></div>
 </div>
 
-<!-- QUIZ -->
-<div id="quiz-screen">
-  <div class="quiz-header">
-    <button class="back-btn" onclick="showTopics()">← Terug</button>
-    <span class="quiz-topic-label" id="q-topic-label"></span>
-    <span class="q-counter" id="q-counter"></span>
+<div id="quiz" class="screen">
+  <div class="qheader">
+    <button class="backbtn" id="backbtn">&#8592; Terug</button>
+    <span class="qlabel" id="qlabel"></span>
+    <span class="qctr" id="qctr"></span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="question-card" id="question-card">
-    <div class="q-type-tag" id="q-type-tag"></div>
-    <div class="q-text" id="q-text"></div>
-    <div class="q-sentence" id="q-sentence"></div>
-    <div class="options" id="options-area"></div>
-    <div class="input-row" id="input-area" style="display:none">
-      <input class="q-input" id="q-input" type="text" placeholder="Tik jou antwoord hier..." autocomplete="off" />
-      <button class="submit-btn" id="submit-btn" onclick="checkInput()">✓ Antwoord</button>
-    </div>
-    <div class="feedback-box" id="feedback-box">
-      <div class="fb-title" id="fb-title"></div>
-      <div id="fb-body"></div>
-      <div class="fb-en" id="fb-en"></div>
-    </div>
-    <button class="next-btn" id="next-btn" onclick="nextQuestion()">Volgende vraag →</button>
-  </div>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+  <div class="qcard" id="qcard"></div>
 </div>
 
-<!-- SCORE -->
-<div id="score-screen">
-  <div class="score-circle">
-    <div class="big-num" id="final-score">0</div>
-    <div class="big-denom" id="final-total">/10</div>
+<div id="done" class="screen">
+  <div class="scirc">
+    <div class="sn" id="fscore">0</div>
+    <div class="sd" id="ftotal">/10</div>
   </div>
-  <h2 id="score-msg">Goed gedaan!</h2>
-  <p id="score-sub"></p>
-  <div class="score-actions">
-    <button class="btn-retry" onclick="retryTopic()">🔄 Probeer weer (Try again)</button>
-    <button class="btn-menu" onclick="showTopics()">📚 Kies 'n ander onderwerp</button>
+  <h2 id="smsg"></h2>
+  <p id="ssub"></p>
+  <div class="sacts">
+    <button class="srty" id="retryBtn">&#128260; Probeer weer / Try again</button>
+    <button class="smnu" id="menuBtn">&#128218; Kies ander onderwerp</button>
   </div>
 </div>
 
 <script>
-// ============================================================
-// QUESTION BANKS
-// ============================================================
+function shuffle(a){var b=[...a];for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t}return b}
 
-const TOPICS = [
-  {
-    id: "vooragter",
-    title: "Voor- en Agtervoegsels",
-    desc: "Prefixes & Suffixes",
-    icon: "🔤",
-    color: "#e8f4fd",
-    iconBg: "#2980b9",
-    questions: () => shuffle([
-      ...makePrefixQs(),
-      ...makeSuffixQs()
-    ]).slice(0,10)
-  },
-  {
-    id: "voegwoorde",
-    title: "Voegwoorde",
-    desc: "Conjunctions",
-    icon: "🔗",
-    color: "#fef9ec",
-    iconBg: "#f39c12",
-    questions: () => shuffle(makeVoegwoordeQs()).slice(0,10)
-  },
-  {
-    id: "afleidings",
-    title: "Afleidings",
-    desc: "Word Derivatives",
-    icon: "🌱",
-    color: "#eafaf1",
-    iconBg: "#27ae60",
-    questions: () => shuffle(makeAfleidingsQs()).slice(0,10)
-  },
-  {
-    id: "samestellings",
-    title: "Samestellings",
-    desc: "Compound Words",
-    icon: "🧩",
-    color: "#fdf0f8",
-    iconBg: "#8e44ad",
-    questions: () => shuffle(makeSamestellingsQs()).slice(0,10)
-  },
-  {
-    id: "kappies",
-    title: "Kappies en Deeltekens",
-    desc: "Circumflex & Diaeresis",
-    icon: "â ë",
-    color: "#fff3e0",
-    iconBg: "#e67e22",
-    questions: () => shuffle(makeKappiesQs()).slice(0,10)
-  },
-  {
-    id: "afkortings",
-    title: "Afkortings & Akronieme",
-    desc: "Abbreviations & Acronyms",
-    icon: "📝",
-    color: "#e8f8f5",
-    iconBg: "#16a085",
-    questions: () => shuffle(makeAfkortingsQs()).slice(0,10)
-  },
-  {
-    id: "hoefrek",
-    title: "Hoëfrekwensiewoorde",
-    desc: "High-frequency Words",
-    icon: "⭐",
-    color: "#eaf0fb",
-    iconBg: "#2c5f9e",
-    questions: () => shuffle(makeHoefrekQs()).slice(0,10)
-  },
-  {
-    id: "byvoeglik",
-    title: "Byvoeglike Naamwoorde",
-    desc: "Adjectives",
-    icon: "🎨",
-    color: "#fdecea",
-    iconBg: "#e74c3c",
-    questions: () => shuffle(makeByvoeglikQs()).slice(0,10)
-  },
-  {
-    id: "hulpwerk",
-    title: "Hulpwerkwoorde",
-    desc: "Auxiliary Verbs",
-    icon: "⚙️",
-    color: "#f4f0fb",
-    iconBg: "#6c3483",
-    questions: () => shuffle(makeHulpwerkQs()).slice(0,10)
-  },
+// =============================================
+// QUESTION BANKS — each has af/zh/en
+// =============================================
+
+function makeVoorAgterQs(){
+  var pool=[
+    {type:'mcq',q:'Voeg die voorvoegsel <b>on-</b> by <b>gelukkig</b>:',ans:'ongelukkig',opts:['ongelukkig','wees','bly','vrolik'],
+      af:'"on-" + "gelukkig" = <b>ongelukkig</b>。前綴 "on-" 把詞變成反義。',
+      zh:'「on-」是一個前綴（prefix），加在詞的前面，意思就變成相反的。gelukkig = 快樂，ongelukkig = 不快樂。就像英文的 un-happy！',
+      en:'"on-" is added BEFORE "gelukkig" to make the opposite: "ongelukkig" (unhappy). Like "un-" in English!'},
+    {type:'mcq',q:'Voeg die voorvoegsel <b>her-</b> by <b>skryf</b>:',ans:'herskryf',opts:['herskryf','geskryf','skrywer','lees'],
+      af:'"her-" beteken om iets WEER te doen. her- + skryf = <b>herskryf</b>。',
+      zh:'「her-」這個前綴的意思是「再一次」。所以 herskryf = 重新寫（rewrite）。就像你考試寫錯了要重寫一樣！',
+      en:'"her-" means "again". "herskryf" = rewrite. Like when you have to rewrite your homework!'},
+    {type:'mcq',q:'Wat kry jy as jy <b>-heid</b> agter <b>vry</b> sit?',ans:'vryheid',opts:['vryheid','vrylaat','vrymaak','vrywees'],
+      af:'vry + -heid = <b>vryheid</b>（freedom）。"-heid" 把形容詞變成名詞。',
+      zh:'「-heid」是後綴（suffix），加在詞的後面。vry（自由的）+ -heid = vryheid（自由）。就像英文 free → freedom！',
+      en:'"vry" (free) + "-heid" = "vryheid" (freedom). The suffix "-heid" turns an adjective into a noun, like "-dom" in English!'},
+    {type:'mcq',q:'Wat kry jy as jy <b>-skap</b> agter <b>vriend</b> sit?',ans:'vriendskap',opts:['vriendskap','vriendelik','vriendin','vriendeloos'],
+      af:'vriend + -skap = <b>vriendskap</b>（friendship）。',
+      zh:'「-skap」是後綴，加在名詞後面。vriend（朋友）+ -skap = vriendskap（友誼）。像英文的 friend → friendship！',
+      en:'"vriend" (friend) + "-skap" = "vriendskap" (friendship). Like "-ship" in English!'},
+
+    {type:'type',q:'Tik die woord: <b>on-</b> + <b>moontlik</b> =',ans:'onmoontlik',hint:'Sit die voorvoegsel voor die woord',
+      af:'on- + moontlik = <b>onmoontlik</b>（impossible）。',
+      zh:'把「on-」放在「moontlik」（可能的）前面 = onmoontlik（不可能的）。前綴永遠加在前面！',
+      en:'Put "on-" before "moontlik" (possible) = "onmoontlik" (impossible). Prefixes always go at the FRONT!'},
+    {type:'type',q:'Tik die woord: <b>her-</b> + <b>bou</b> =',ans:'herbou',hint:'Sit die voorvoegsel voor die woord',
+      af:'her- + bou = <b>herbou</b>（rebuild）。',
+      zh:'her-（再次）+ bou（建造）= herbou（重建）。很簡單，直接黏在一起就好！',
+      en:'"her-" (again) + "bou" (build) = "herbou" (rebuild). Just stick them together!'},
+    {type:'type',q:'Tik die woord: <b>vriend</b> + <b>-lik</b> =',ans:'vriendelik',hint:'Let op die spelling!',
+      af:'vriend + -lik = <b>vriendelik</b>。注意拼寫變化，多了一個 e！',
+      zh:'vriend + -lik = vriendelik（友善的）。注意！中間多了一個「e」，不是直接加上去的。有些詞加後綴時拼寫會變化！',
+      en:'"vriend" + "-lik" = "vriendelik" (friendly). Notice the extra "e" in the middle! Some words change spelling when adding suffixes.'},
+
+    {type:'tf',q:'<b>ongelukkig</b> het die voorvoegsel <b>on-</b>。',ans:true,
+      af:'WAAR！"on-" is die voorvoegsel voor "gelukkig"。',
+      zh:'對的！「ongelukkig」這個詞裡面，「on-」就是前綴。把 on- 拿掉，剩下 gelukkig（快樂的），加上 on- 就變成不快樂的。',
+      en:'TRUE! "on-" is the prefix in "ongelukkig". Remove "on-" and you get "gelukkig" (happy). Add "on-" = unhappy.'},
+    {type:'tf',q:'Die agtervoegsel <b>-heid</b> word VOOR die woord geplaas。',ans:false,
+      af:'ONWAAR！Agtervoegsel word AGTER die woord geplaas。',
+      zh:'錯！「agtervoegsel」的意思就是「後綴」，要加在詞的後面（agter = 後面）。-heid 加在後面：vry + -heid = vryheid。如果加在前面就叫前綴（voorvoegsel）了！',
+      en:'FALSE! "Agtervoegsel" means SUFFIX — it goes at the END of a word (agter = behind). -heid goes at the end: vry + -heid = vryheid.'},
+    {type:'tf',q:'<b>herskryf</b> beteken om iets vir die eerste keer te skryf。',ans:false,
+      af:'ONWAAR！her- beteken WEER（again），nie die eerste keer nie。',
+      zh:'錯！「her-」的意思是「再一次」，不是第一次。herskryf = 重寫（rewrite），不是第一次寫。想想看：re-write，re- 就是「再」的意思！',
+      en:'FALSE! "her-" means "again", not "first time". herskryf = rewrite. Think of English "re-" = again!'},
+
+    {type:'sentence',q:'Skryf n sin met die woord <b>ongelukkig</b>。<br>（用 ongelukkig 寫一個句子）',
+      required:['ongelukkig'],minWords:3,
+      example:'Die seun is ongelukkig omdat hy nie kan speel nie.',
+      af:'Jou sin moet die woord "ongelukkig" gebruik。',
+      zh:'你的句子裡面必須有「ongelukkig」（不快樂的）這個詞。想一個不快樂的情境，然後寫出來！例如：Die seun is ongelukkig. = 那個男孩不快樂。',
+      en:'Your sentence must contain the word "ongelukkig" (unhappy). Think of an unhappy situation! Example: Die seun is ongelukkig. = The boy is unhappy.'},
+    {type:'sentence',q:'Skryf n sin met die woord <b>vriendskap</b>。<br>（用 vriendskap 寫一個句子）',
+      required:['vriendskap'],minWords:3,
+      example:'Vriendskap is baie belangrik vir my.',
+      af:'Jou sin moet die woord "vriendskap" gebruik。',
+      zh:'你的句子必須用到「vriendskap」（友誼）。想想什麼時候會說到友誼？例如：Vriendskap is belangrik. = 友誼很重要。',
+      en:'Your sentence must use "vriendskap" (friendship). Example: Vriendskap is belangrik. = Friendship is important.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeVoegwoordeQs(){
+  var pool=[
+    {type:'fill',q:'Tik die voegwoord:',sen:'Ek eet pap ___ ek is honger.',ans:'want',hint:'"because"',
+      af:'<b>want</b> = because。給出原因的連接詞。',
+      zh:'「want」= because（因為）。這個詞用來解釋原因。「我吃粥因為我餓了」→ 「因為」就是 want。',
+      en:'"want" = because — it gives the reason. "I eat porridge BECAUSE I am hungry."'},
+    {type:'fill',q:'Tik die voegwoord:',sen:'Sy wil sing ___ sy kan nie.',ans:'maar',hint:'"but"',
+      af:'<b>maar</b> = but。表示轉折。',
+      zh:'「maar」= but（但是）。前面說她想唱歌，後面說她不會 → 中間就用「maar」（但是）。兩件相反的事情中間用 maar！',
+      en:'"maar" = but — connects two opposite ideas. "She wants to sing BUT she cannot."'},
+    {type:'fill',q:'Tik die voegwoord:',sen:'Die seun ___ die meisie speel saam.',ans:'en',hint:'"and"',
+      af:'<b>en</b> = and。連接兩個東西。',
+      zh:'「en」= and（和/跟）。男孩「和」女孩一起玩 → 用 en 連接兩個人。最簡單的連接詞！',
+      en:'"en" = and — joins two things. "The boy AND the girl play together."'},
+    {type:'fill',q:'Tik die voegwoord:',sen:'Jy kan loop ___ ry na die skool.',ans:'of',hint:'"or"',
+      af:'<b>of</b> = or。給出選擇。',
+      zh:'「of」= or（或者）。你可以走路「或者」開車去學校 → 有兩個選擇時就用 of！',
+      en:'"of" = or — gives a choice. "You can walk OR drive to school."'},
+
+    {type:'mcq',q:'Kies die regte voegwoord:',sen:'Ek leer hard ___ ek goed kan doen.',ans:'sodat',opts:['sodat','want','maar','of'],
+      af:'<b>sodat</b> = so that。表示目的。',
+      zh:'「sodat」= so that（為了/好讓）。我努力學習「為了」考好成績 → sodat 用來說明目的，你做這件事是為了什麼。',
+      en:'"sodat" = so that — explains the PURPOSE. "I study hard SO THAT I can do well."'},
+    {type:'mcq',q:'Kies die regte voegwoord:',sen:'___ jy klaar is, kan jy speel.',ans:'Wanneer',opts:['Wanneer','Maar','Want','Of'],
+      af:'<b>Wanneer</b> = When。表示時間。',
+      zh:'「Wanneer」= When（當...的時候）。「當」你做完了，你就可以玩 → Wanneer 用來說時間。',
+      en:'"Wanneer" = When — tells about timing. "WHEN you are done, you can play."'},
+    {type:'mcq',q:'Kies die regte voegwoord:',sen:'Hy was moeg, ___ hy het geslaap.',ans:'dus',opts:['dus','maar','of','want'],
+      af:'<b>dus</b> = therefore。表示結果。',
+      zh:'「dus」= therefore/so（所以）。他很累，「所以」他去睡覺了 → dus 用來說結果。',
+      en:'"dus" = therefore/so — shows the RESULT. "He was tired, SO he slept."'},
+
+    {type:'tf',q:'<b>want</b> en <b>omdat</b> beteken albei "because"。',ans:true,
+      af:'WAAR！Albei beteken "because"。',
+      zh:'對的！want 和 omdat 都是「因為」的意思，只是在句子裡的位置不同。兩個都很常用！',
+      en:'TRUE! Both "want" and "omdat" mean "because", just used slightly differently in sentences.'},
+    {type:'tf',q:'<b>maar</b> beteken "and" in Engels。',ans:false,
+      af:'ONWAAR！maar = "but"，nie "and" nie。',
+      zh:'錯！maar = but（但是），不是 and（和）。「and」的 Afrikaans 是「en」。別搞混了！maar 是轉折，en 是連接。',
+      en:'FALSE! "maar" = "but", NOT "and". "And" in Afrikaans is "en". Don\'t mix them up!'},
+
+    {type:'sentence',q:'Skryf n sin met die voegwoord <b>want</b>。<br>（用 want 寫一個句子）',
+      required:['want'],minWords:4,
+      example:'Ek is bly want dit is vakansie.',
+      af:'Jou sin moet "want" as voegwoord gebruik。',
+      zh:'你的句子裡要用「want」（因為）。想一個有原因的句子！例如：Ek is bly want dit is vakansie. = 我很開心因為放假了。句子要有兩個部分：結果 + want + 原因。',
+      en:'Use "want" (because) in your sentence. Example: Ek is bly want dit is vakansie. = I am happy because it is holiday.'},
+    {type:'sentence',q:'Skryf n sin met die voegwoord <b>maar</b>。<br>（用 maar 寫一個句子）',
+      required:['maar'],minWords:4,
+      example:'Ek wil speel maar ek moet leer.',
+      af:'Jou sin moet "maar" as voegwoord gebruik。',
+      zh:'你的句子要用「maar」（但是）。想兩件相反的事情！例如：Ek wil speel maar ek moet leer. = 我想玩但是我必須學習。',
+      en:'Use "maar" (but) in your sentence. Think of two opposite things! Example: Ek wil speel maar ek moet leer. = I want to play but I must study.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeAfleidingsQs(){
+  var pool=[
+    {type:'type',q:'Wie is die persoon wat <b>speel</b>? (Voeg -er by)',ans:'speler',hint:'speel + -er = ?',
+      af:'speel + -er = <b>speler</b>。',
+      zh:'speel（玩）+ -er = speler（玩的人/球員）。加 -er 就變成「做這個動作的人」。像英文 play → player！',
+      en:'"speel" (play) + "-er" = "speler" (player). Add "-er" to describe the person who does the action!'},
+    {type:'type',q:'Wie is die persoon wat <b>skryf</b>?',ans:'skrywer',hint:'Let op: f word w!',
+      af:'skryf → <b>skrywer</b>。注意 f 變成 w！',
+      zh:'skryf（寫）→ skrywer（作家）。注意！f 變成了 w！不是 skryfer，是 skrywer。有些詞加後綴時拼寫會改變。',
+      en:'"skryf" (write) → "skrywer" (writer). The "f" changes to "w"! Not "skryfer" but "skrywer".'},
+    {type:'type',q:'Maak n naamwoord van <b>mooi</b> (voeg -heid by):',ans:'mooiheid',hint:'mooi + -heid = ?',
+      af:'mooi + -heid = <b>mooiheid</b>（beauty）。',
+      zh:'mooi（美麗的）+ -heid = mooiheid（美麗/美）。-heid 這個後綴把形容詞變成名詞。就像 beautiful → beauty！',
+      en:'"mooi" (beautiful) + "-heid" = "mooiheid" (beauty). "-heid" turns adjective into noun!'},
+
+    {type:'mcq',q:'Wat is die afleiding van <b>leer</b> (die kind wat leer)?',ans:'leerling',opts:['leerling','leerder','geleer','leerskool'],
+      af:'leer + -ling = <b>leerling</b>。',
+      zh:'leer（學習）+ -ling = leerling（學生）。-ling 也是用來形容「做這個動作的人」。你就是一個 leerling！',
+      en:'"leer" (learn) + "-ling" = "leerling" (student/learner). YOU are a leerling!'},
+    {type:'mcq',q:'Wat is die afleiding van <b>bak</b> (die persoon)?',ans:'bakker',opts:['bakker','gebak','bakkery','baksel'],
+      af:'bak → <b>bakker</b>。',
+      zh:'bak（烤/烘焙）→ bakker（烘焙師/麵包師）。做烘焙的人就叫 bakker！',
+      en:'"bak" (bake) → "bakker" (baker). The person who bakes!'},
+
+    {type:'tf',q:'<b>speler</b> is n afleiding van <b>speel</b>。',ans:true,
+      af:'WAAR！speel + -er = speler。',
+      zh:'對的！speler 就是從 speel 變來的。speel（動詞：玩）加上 -er 後綴 → speler（名詞：球員/玩家）。',
+      en:'TRUE! "speler" comes from "speel". speel (verb: play) + -er = speler (noun: player).'},
+    {type:'tf',q:'<b>skrywer</b> is n afleiding van <b>skool</b>。',ans:false,
+      af:'ONWAAR！skrywer kom van <b>skryf</b>！',
+      zh:'錯！skrywer（作家）是從 skryf（寫）來的，不是從 skool（學校）來的。記住：skryf → skrywer，f 變成 w！',
+      en:'FALSE! "skrywer" (writer) comes from "skryf" (write), NOT "skool" (school)!'},
+
+    {type:'sentence',q:'Skryf n sin met die woord <b>speler</b>。<br>（用 speler 寫一個句子）',
+      required:['speler'],minWords:3,
+      example:'Die speler het die bal geskop.',
+      af:'Gebruik "speler" in n sin。',
+      zh:'用 speler（球員/玩家）造一個句子。例如：Die speler het die bal geskop. = 那個球員踢了球。想想你喜歡的運動員！',
+      en:'Use "speler" (player) in a sentence. Example: Die speler het die bal geskop. = The player kicked the ball.'},
+    {type:'sentence',q:'Skryf n sin met die woord <b>bakker</b>。<br>（用 bakker 寫一個句子）',
+      required:['bakker'],minWords:3,
+      example:'Die bakker bak lekker brood.',
+      af:'Gebruik "bakker" in n sin。',
+      zh:'用 bakker（麵包師）造一個句子。例如：Die bakker bak lekker brood. = 麵包師烤好吃的麵包。',
+      en:'Use "bakker" (baker) in a sentence. Example: Die bakker bak lekker brood. = The baker bakes delicious bread.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeSamestellingsQs(){
+  var pool=[
+    {type:'type',q:'Kombineer: <b>boek</b> + <b>rak</b> =',ans:'boekrak',hint:'直接黏在一起',
+      af:'boek + rak = <b>boekrak</b>。',
+      zh:'把兩個詞直接黏在一起！boek（書）+ rak（架子）= boekrak（書架）。Afrikaans 的合成詞就是這麼簡單！',
+      en:'book + shelf = bookshelf. Just stick the two words together!'},
+    {type:'type',q:'Kombineer: <b>huis</b> + <b>werk</b> =',ans:'huiswerk',hint:'直接黏在一起',
+      af:'huis + werk = <b>huiswerk</b>。',
+      zh:'huis（家）+ werk（工作）= huiswerk（家庭作業）！你每天都要做 huiswerk 對不對？',
+      en:'house + work = homework! You do huiswerk every day, right?'},
+    {type:'type',q:'Kombineer: <b>son</b> + <b>blom</b> =',ans:'sonblom',hint:'直接黏在一起',
+      af:'son + blom = <b>sonblom</b>。',
+      zh:'son（太陽）+ blom（花）= sonblom（向日葵）。一朵朝向太陽的花！',
+      en:'sun + flower = sunflower!'},
+    {type:'type',q:'Kombineer: <b>slaap</b> + <b>kamer</b> =',ans:'slaapkamer',hint:'直接黏在一起',
+      af:'slaap + kamer = <b>slaapkamer</b>。',
+      zh:'slaap（睡覺）+ kamer（房間）= slaapkamer（臥室）。你睡覺的房間！',
+      en:'sleep + room = bedroom!'},
+
+    {type:'mcq',q:'Kombineer <b>tand</b> + <b>pasta</b>:',ans:'tandpasta',opts:['tandpasta','pastatand','tandborsel','mondwater'],
+      af:'tand + pasta = <b>tandpasta</b>。',
+      zh:'tand（牙齒）+ pasta（膏）= tandpasta（牙膏）。注意：第一個詞決定主要意思，第二個詞補充說明。',
+      en:'tooth + paste = toothpaste. The first word describes WHAT KIND, the second word is the THING.'},
+    {type:'mcq',q:'Kombineer <b>swem</b> + <b>bad</b>:',ans:'swembad',opts:['swembad','badswem','swemwater','waterswem'],
+      af:'swem + bad = <b>swembad</b>。',
+      zh:'swem（游泳）+ bad（池/浴）= swembad（游泳池）。順序很重要：先說什麼類型，再說是什麼東西！',
+      en:'swim + bath = swimming pool. Order matters: type first, then the thing!'},
+
+    {type:'match',q:'Pas die woorde bymekaar om samestellings te maak:',pairs:[['skool','bord'],['brood','mes'],['oog','arts'],['son','lig']],
+      af:'skoolbord, broodmes, oogarts, sonlig。',
+      zh:'skool+bord=skoolbord（黑板），brood+mes=broodmes（麵包刀），oog+arts=oogarts（眼科醫生），son+lig=sonlig（陽光）。',
+      en:'schoolboard, bread knife, eye doctor, sunlight.'},
+    {type:'match',q:'Pas die woorde bymekaar:',pairs:[['voet','bal'],['water','val'],['vis','dam'],['tuin','slang']],
+      af:'voetbal, waterval, visdam, tuinslang。',
+      zh:'voet+bal=voetbal（足球），water+val=waterval（瀑布），vis+dam=visdam（魚塘），tuin+slang=tuinslang（花園水管）。',
+      en:'football, waterfall, fishpond, garden hose.'},
+
+    {type:'sentence',q:'Skryf n sin met die samestelling <b>huiswerk</b>。<br>（用 huiswerk 寫句子）',
+      required:['huiswerk'],minWords:3,
+      example:'Ek moet my huiswerk doen.',
+      af:'Gebruik "huiswerk" in n sin。',
+      zh:'用 huiswerk（家庭作業）造句。例如：Ek moet my huiswerk doen. = 我必須做我的功課。你一定很熟悉這個詞！',
+      en:'Use "huiswerk" (homework) in a sentence. Example: Ek moet my huiswerk doen. = I must do my homework.'},
+    {type:'sentence',q:'Skryf n sin met die samestelling <b>sonblom</b>。<br>（用 sonblom 寫句子）',
+      required:['sonblom'],minWords:3,
+      example:'Die sonblom is groot en geel.',
+      af:'Gebruik "sonblom" in n sin。',
+      zh:'用 sonblom（向日葵）造句。例如：Die sonblom is groot en geel. = 向日葵又大又黃。',
+      en:'Use "sonblom" (sunflower) in a sentence. Example: Die sonblom is groot en geel. = The sunflower is big and yellow.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeKappiesQs(){
+  var pool=[
+    {type:'mcq',q:'Watter een is reg vir "tomorrow"?',ans:'m\u00f4re',opts:['m\u00f4re','more','moere','morre'],
+      af:'<b>m\u00f4re</b> = tomorrow。kappie 讓母音變長。',
+      zh:'m\u00f4re = 明天。上面的小帽子（^）叫 kappie，它讓母音發音變長。沒有 kappie 的 more = 更多。一個小帽子，意思完全不同！',
+      en:'"m\u00f4re" = tomorrow. The little hat (^) is called a "kappie" — it makes the vowel LONGER. Without it, "more" = extra/more. Big difference!'},
+    {type:'mcq',q:'Watter een is reg vir "world"?',ans:'w\u00eareld',opts:['w\u00eareld','wereld','weereld','wireld'],
+      af:'<b>w\u00eareld</b> het n kappie op die "e"。',
+      zh:'w\u00eareld = 世界。\u00ea（有帽子的 e）的發音比普通的 e 更長。記住：世界很大，所以母音也要拉長！',
+      en:'"w\u00eareld" = world. The \u00ea (e with hat) sounds longer than regular e.'},
+    {type:'mcq',q:'Watter woord gebruik n deelteken korrek?',ans:'na\u00efef',opts:['na\u00efef','naief','nayef','naaf'],
+      af:'<b>na\u00efef</b> — deelteken 讓兩個母音分開唸。',
+      zh:'na\u00efef（天真的）。上面兩個小點（\u00a8）叫 deelteken（分開符號）。它告訴你：這兩個母音要分開唸！na-\u00ef-ef，不是連在一起唸。',
+      en:'"na\u00efef" — the two dots (\u00a8) are called a "deelteken". It means: pronounce these two vowels SEPARATELY! na-ee-ef, not blended together.'},
+    {type:'mcq',q:'Kies die korrekte spelling vir "to have":',ans:'h\u00ea',opts:['h\u00ea','he','ha','heh'],
+      af:'<b>h\u00ea</b> = to have。',
+      zh:'h\u00ea = 擁有（to have）。沒有 kappie 的話，he 看起來像是在叫人「嘿！」。所以 kappie 很重要！',
+      en:'"h\u00ea" = to have. Without the kappie, "he" looks like you are calling someone "hey!"'},
+
+    {type:'tf',q:'n Kappie (^) maak n klinkklank LANGER。',ans:true,
+      af:'WAAR！Kappie 讓母音變長。',
+      zh:'對的！kappie（^）的作用就是讓母音發音變長。\u00f4 比 o 長，\u00ea 比 e 長。想像小帽子在幫母音「伸展」！',
+      en:'TRUE! The kappie (^) makes the vowel sound LONGER. \u00f4 is longer than o, \u00ea is longer than e.'},
+    {type:'tf',q:'<b>m\u00f4re</b> en <b>more</b> beteken dieselfde ding。',ans:false,
+      af:'ONWAAR！m\u00f4re = tomorrow，more = extra。',
+      zh:'錯！m\u00f4re = 明天（tomorrow），more = 更多（extra）。就差一個小帽子，意思完全不同！這就是為什麼 kappie 很重要。',
+      en:'FALSE! m\u00f4re = tomorrow, more = extra. Just one little hat and the meaning is totally different!'},
+    {type:'tf',q:'n Deelteken wys dat twee klinkers SAAM uitgespreek word。',ans:false,
+      af:'ONWAAR！Deelteken = APART uitgespreek。',
+      zh:'錯！deelteken（兩個小點 \u00a8）的意思是兩個母音要「分開」唸，不是一起唸。deel = 分開，teken = 符號。分開的符號！',
+      en:'FALSE! The deelteken means vowels are pronounced SEPARATELY. "deel" = divide/separate, "teken" = sign. A dividing sign!'},
+
+    {type:'sentence',q:'Skryf n sin met die woord <b>m\u00f4re</b> (tomorrow)。<br>（用 m\u00f4re 寫句子）',
+      required:['m\u00f4re','more'],minWords:3,
+      example:'Ek gaan m\u00f4re skool toe.',
+      af:'Gebruik "m\u00f4re" in n sin。',
+      zh:'用 m\u00f4re（明天）造句。例如：Ek gaan m\u00f4re skool toe. = 我明天要去學校。',
+      en:'Use "m\u00f4re" (tomorrow) in a sentence. Example: Ek gaan m\u00f4re skool toe. = I go to school tomorrow.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeAfkortingsQs(){
+  var pool=[
+    {type:'type',q:'Skryf die volle woord vir: <b>bl.</b>',ans:'bladsy',hint:'Dink aan n boek...',
+      af:'bl. = <b>bladsy</b>（page）。',
+      zh:'bl. = bladsy（頁/頁碼）。在書裡面看到 bl. 52 就是說「第52頁」。bl 是 bladsy 的縮寫！',
+      en:'"bl." = bladsy (page). When you see "bl. 52" in a book, it means "page 52"!'},
+    {type:'type',q:'Skryf die volle woorde vir: <b>bv.</b>',ans:'byvoorbeeld',hint:'= "for example"',
+      af:'bv. = <b>byvoorbeeld</b>。',
+      zh:'bv. = byvoorbeeld（例如）。像英文的 e.g. 一樣，用來舉例子的！',
+      en:'"bv." = byvoorbeeld = for example. Like "e.g." in English!'},
+    {type:'type',q:'Skryf die volle woord vir: <b>asb.</b>',ans:'asseblief',hint:'= "please"',
+      af:'asb. = <b>asseblief</b>。',
+      zh:'asb. = asseblief（請）。這是禮貌用語！Afrikaans 的 please！',
+      en:'"asb." = asseblief = please!'},
+
+    {type:'mcq',q:'Wat beteken <b>RSA</b>?',ans:'Republiek van Suid-Afrika',opts:['Republiek van Suid-Afrika','Rand Suid-Afrika','Radio Suid-Afrika','Rede Suid-Afrika'],
+      af:'RSA = Republiek van Suid-Afrika。',
+      zh:'RSA = Republiek van Suid-Afrika（南非共和國）。這是我們國家的正式名稱！每個字母代表一個詞的開頭。',
+      en:'RSA = Republic of South Africa — our country\'s official name!'},
+    {type:'mcq',q:'Wat beteken <b>d.w.s.</b>?',ans:'dit wil s\u00ea',opts:['dit wil s\u00ea','dalk was so','dit was seker','doen wat s\u00ea'],
+      af:'d.w.s. = <b>dit wil s\u00ea</b>。',
+      zh:'d.w.s. = dit wil s\u00ea（也就是說）。像英文的 i.e.，用來解釋前面說的話。',
+      en:'"d.w.s." = dit wil s\u00ea = "that is to say" or "i.e."'},
+    {type:'mcq',q:'Wat beteken <b>ens.</b>?',ans:'ensovoorts',opts:['ensovoorts','ensaam','ensekerheid','ensopas'],
+      af:'ens. = <b>ensovoorts</b>。',
+      zh:'ens. = ensovoorts（等等）。像英文的 etc.！後面還有更多東西就用 ens.。',
+      en:'"ens." = ensovoorts = "and so on" or "etc."'},
+
+    {type:'tf',q:'<b>RSA</b> is n akroniem。',ans:true,
+      af:'WAAR！',
+      zh:'對的！akroniem（首字母縮寫）就是用每個詞的第一個字母組成的。R-S-A = Republiek van Suid-Afrika。',
+      en:'TRUE! An acronym is made from the first letters of each word: R-S-A.'},
+    {type:'tf',q:'<b>bl.</b> staan vir <b>blou</b>。',ans:false,
+      af:'ONWAAR！bl. = bladsy。',
+      zh:'錯！bl. = bladsy（頁），不是 blou（藍色）！雖然都是 bl 開頭，但縮寫的意思是「頁碼」。',
+      en:'FALSE! "bl." = bladsy (page), NOT blou (blue)!'},
+
+    {type:'sentence',q:'Skryf n sin en gebruik die afkorting <b>bv.</b> daarin。<br>（用 bv. 造句）',
+      required:['bv.','bv'],minWords:4,
+      example:'Ek hou van sport, bv. sokker en rugby.',
+      af:'Gebruik "bv." in n sin om n voorbeeld te gee。',
+      zh:'用 bv.（例如）來造句。例如：Ek hou van sport, bv. sokker en rugby. = 我喜歡運動，例如足球和橄欖球。',
+      en:'Use "bv." (for example) in a sentence. Example: Ek hou van sport, bv. sokker en rugby.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeHoefrekQs(){
+  var pool=[
+    {type:'type',q:'Spel die woord vir "because" (EEN woord):',ans:'omdat',hint:'Nie twee woorde nie!',
+      af:'<b>omdat</b> = because，是一個詞！',
+      zh:'omdat = because（因為），要寫成一個詞！不是 "om dat" 兩個詞。記住：黏在一起寫！',
+      en:'"omdat" = because — it is ONE word, not two! Don\'t split it into "om dat"!'},
+    {type:'type',q:'Spel die woord vir "usually":',ans:'gewoonlik',hint:'gewoon + -lik',
+      af:'<b>gewoonlik</b> = usually。',
+      zh:'gewoonlik = usually（通常）。gewoon（普通的）+ -lik = gewoonlik。雙寫 o！',
+      en:'"gewoonlik" = usually. Double "o" in the middle!'},
+    {type:'type',q:'Spel die woord vir "perhaps":',ans:'miskien',hint:'mis + kien',
+      af:'<b>miskien</b> = perhaps。',
+      zh:'miskien = perhaps/maybe（也許）。注意拼寫：mis-kien，不是 mischien！',
+      en:'"miskien" = perhaps/maybe. Careful with spelling: mis-kien!'},
+
+    {type:'mcq',q:'Kies die KORREKTE spelling:',ans:'gelukkig',opts:['gelukkig','gelukig','gellukkig','gluckkig'],
+      af:'<b>gelukkig</b> — 雙寫 k。',
+      zh:'gelukkig = lucky/happy（幸運的/快樂的）。中間有兩個 k！ge-luk-kig。多唸幾次就記住了！',
+      en:'"gelukkig" (lucky/happy) — double "k" in the middle: ge-luk-kig.'},
+    {type:'mcq',q:'Wat beteken "therefore" in Afrikaans?',ans:'daarom',opts:['daarom','daaron','daaom','darvoor'],
+      af:'<b>daarom</b> = therefore。',
+      zh:'daarom = therefore/so（所以/因此）。daar（那裡）+ om = daarom。用來表示結果或原因。',
+      en:'"daarom" = therefore. Used to show a result or reason.'},
+
+    {type:'tf',q:'<b>omdat</b> word as twee woorde geskryf: "om dat"。',ans:false,
+      af:'ONWAAR！omdat 是一個詞。',
+      zh:'錯！omdat 是一個詞，不能分開寫。「om dat」是錯的！記住：黏在一起！',
+      en:'FALSE! "omdat" is ONE word. "om dat" (two words) is wrong!'},
+    {type:'tf',q:'<b>natuurlik</b> het n dubbel "a"。',ans:true,
+      af:'WAAR！na-tuur-lik — 雙寫 a 在 natuur 裡面。',
+      zh:'對的！natuurlik = naturally（自然地）。natuur 裡面有兩個 a：na-tuur。',
+      en:'TRUE! natuurlik = naturally. "natuur" has double "a".'},
+
+    {type:'sentence',q:'Skryf n sin met die woord <b>omdat</b>。<br>（用 omdat 造句）',
+      required:['omdat'],minWords:4,
+      example:'Ek is laat omdat die bus laat was.',
+      af:'Gebruik "omdat" in n sin。',
+      zh:'用 omdat（因為）造句。例如：Ek is laat omdat die bus laat was. = 我遲到了因為公車晚了。',
+      en:'Use "omdat" (because) in a sentence. Example: Ek is laat omdat die bus laat was. = I am late because the bus was late.'},
+    {type:'sentence',q:'Skryf n sin met die woord <b>miskien</b>。<br>（用 miskien 造句）',
+      required:['miskien'],minWords:3,
+      example:'Miskien gaan ons more swem.',
+      af:'Gebruik "miskien" in n sin。',
+      zh:'用 miskien（也許）造句。例如：Miskien gaan ons more swem. = 也許我們明天去游泳。',
+      en:'Use "miskien" (perhaps) in a sentence. Example: Miskien gaan ons more swem. = Perhaps we will swim tomorrow.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeByvoeglikQs(){
+  var pool=[
+    {type:'mcq',q:'Identifiseer die byvoeglike naamwoord:',sen:'"Die groot hond byt."',ans:'groot',opts:['groot','hond','byt','die'],
+      af:'<b>groot</b> beskryf die hond。',
+      zh:'groot = 大的。形容詞（byvoeglike naamwoord）是用來描述東西的詞。這隻狗怎麼樣？→ 大的！所以 groot 是形容詞。',
+      en:'"groot" (big) describes the dog. An adjective tells you WHAT SOMETHING IS LIKE.'},
+    {type:'mcq',q:'Wat is die trappe van vergelyking vir <b>groot</b>?',ans:'groot, groter, grootste',opts:['groot, groter, grootste','groot, grootste, groter','groter, groot, grootste','groot, grooter, grootst'],
+      af:'groot - groter - grootste（大 - 更大 - 最大）。',
+      zh:'groot（大）→ groter（更大）→ grootste（最大）。這叫「比較級」！加 -er = 更...，加 -ste = 最...。像英文 big → bigger → biggest！',
+      en:'groot (big) → groter (bigger) → grootste (biggest). Add "-er" for comparative, "-ste" for superlative!'},
+    {type:'mcq',q:'Wat is die trappe vir <b>goed</b>?',ans:'goed, beter, beste',opts:['goed, beter, beste','goed, goeder, goedste','goed, meer goed, meeste goed','goeder, goed, beste'],
+      af:'goed - beter - beste。不規則變化！',
+      zh:'goed（好）→ beter（更好）→ beste（最好）。這個是不規則的！不是加 -er，而是整個詞都變了。就像英文 good → better → best！要背起來！',
+      en:'goed (good) → beter (better) → beste (best). This is IRREGULAR — the whole word changes! Just like English: good → better → best. You have to memorize it!'},
+
+    {type:'type',q:'Wat is die komparatief van <b>vinnig</b>?（更快）',ans:'vinniger',hint:'Voeg -er by',
+      af:'vinnig + -er = <b>vinniger</b>。',
+      zh:'vinnig（快）+ -er = vinniger（更快）。大部分形容詞的比較級就是加 -er！',
+      en:'"vinnig" (fast) + "-er" = "vinniger" (faster). Most adjectives: just add "-er"!'},
+    {type:'type',q:'Wat is die superlatief van <b>mooi</b>?（最美）',ans:'mooiste',hint:'Voeg -ste by',
+      af:'mooi + -ste = <b>mooiste</b>。',
+      zh:'mooi（美）+ -ste = mooiste（最美）。最高級就是加 -ste！',
+      en:'"mooi" (beautiful) + "-ste" = "mooiste" (most beautiful). Superlative = add "-ste"!'},
+
+    {type:'tf',q:'<b>hardloop</b> is n byvoeglike naamwoord。',ans:false,
+      af:'ONWAAR！hardloop 是動詞（werkwoord）。',
+      zh:'錯！hardloop = 跑步，這是動詞（werkwoord），不是形容詞。動詞描述「動作」，形容詞描述「特質」。跑步是動作，不是特質！',
+      en:'FALSE! "hardloop" (to run) is a VERB, not an adjective. Verbs describe ACTIONS, adjectives describe QUALITIES.'},
+    {type:'tf',q:'In Afrikaans staan die byvoeglike naamwoord gewoonlik VOOR die naamwoord。',ans:true,
+      af:'WAAR！Bv: "Die rooi bal" — rooi 在 bal 前面。',
+      zh:'對的！Afrikaans 裡，形容詞通常放在名詞前面。例如：Die ROOI bal（紅色的球）。rooi 在 bal 前面，跟英文 the RED ball 一樣！',
+      en:'TRUE! In Afrikaans, adjectives come BEFORE the noun. "Die ROOI bal" = the RED ball.'},
+
+    {type:'sentence',q:'Skryf n sin met n byvoeglike naamwoord (adjective)。<br>（用任何一個形容詞寫句子）',
+      required:['is','het','die','n','groot','klein','mooi','rooi','blou','groen','slim','lank','kort','oud','jonk','warm','koud','vinnig','stadig','lekker','sterk','vriendelik','gelukkig'],minWords:3,requireAny:true,
+      example:'Die slim meisie lees n boek.',
+      af:'Gebruik n byvoeglike naamwoord (bv. groot, mooi, rooi) in jou sin。',
+      zh:'用任何一個形容詞造句！形容詞例如：groot（大）、klein（小）、mooi（美）、rooi（紅）、slim（聰明）。例如：Die slim meisie lees n boek. = 聰明的女孩讀一本書。',
+      en:'Use any adjective in your sentence! Examples: groot (big), klein (small), mooi (beautiful), rooi (red), slim (clever). Example: Die slim meisie lees n boek.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+function makeHulpwerkQs(){
+  var pool=[
+    {type:'fill',q:'Vul die hulpwerkwoord in:',sen:'Ek ___ more gaan swem.',ans:'sal',hint:'future tense',
+      af:'<b>sal</b> = will。未來式。',
+      zh:'sal = will/shall（將會）。用來說未來要做的事。「我明天將會去游泳」→ sal 放在主詞後面。',
+      en:'"sal" = will/shall — for things that WILL happen in the future.'},
+    {type:'fill',q:'Vul die hulpwerkwoord in:',sen:'Hulle ___ gister gesing.',ans:'het',hint:'past tense',
+      af:'<b>het</b> = have/had。過去式。',
+      zh:'het = have/had。用來說已經發生的事（過去式）。「他們昨天唱了歌」→ het + ge-動詞 = 過去式。',
+      en:'"het" = have/had — for things that ALREADY happened (past tense).'},
+    {type:'fill',q:'Vul die hulpwerkwoord in:',sen:'Ons ___ elke dag oefen.',ans:'moet',hint:'must / have to',
+      af:'<b>moet</b> = must。表示必須。',
+      zh:'moet = must（必須）。表示你一定要做的事。「我們每天必須練習」→ moet 表示義務。',
+      en:'"moet" = must/have to — shows something is REQUIRED.'},
+
+    {type:'mcq',q:'Watter hulpwerkwoord beteken "can"?',ans:'kan',opts:['kan','moet','mag','sal'],
+      af:'<b>kan</b> = can。表示能力。',
+      zh:'kan = can（能/會）。表示你有能力做某件事。「我會游泳」= Ek kan swem。kan 是說你「做得到」！',
+      en:'"kan" = can — shows ABILITY. "I can swim" = Ek kan swem.'},
+    {type:'mcq',q:'Watter hulpwerkwoord vra vir TOESTEMMING?',ans:'mag',opts:['mag','kan','moet','sal'],
+      af:'<b>mag</b> = may。表示許可。',
+      zh:'mag = may（可以）。用來請求或給予許可。「我可以去嗎？」= Mag ek gaan? 注意：kan = 能力，mag = 許可，不一樣！',
+      en:'"mag" = may — for PERMISSION. "May I go?" = Mag ek gaan? Note: kan = ability, mag = permission!'},
+    {type:'mcq',q:'Kies die korrekte sin in die TOEKOMS:',ans:'Ek sal more speel.',opts:['Ek sal more speel.','Ek het more gespeel.','Ek was more speel.','Ek is more speel.'],
+      af:'sal + werkwoord = 未來式。',
+      zh:'「Ek sal more speel」是正確的未來式。sal（將會）+ 動詞 = 未來。het 是過去式，不能用在明天的事情！',
+      en:'"Ek sal more speel" = "I will play tomorrow". sal + verb = future tense. "het" is past tense — can\'t use for tomorrow!'},
+
+    {type:'tf',q:'<b>het</b> word gebruik vir die verlede tyd。',ans:true,
+      af:'WAAR！het + ge-動詞 = 過去式。',
+      zh:'對的！het 用來表示過去式。例如：Ek het gespeel = I played（我玩了）。het + ge-動詞 = 過去的事。',
+      en:'TRUE! "het" is for past tense. Ek het gespeel = I played.'},
+    {type:'tf',q:'<b>sal</b> word gebruik vir die verlede tyd。',ans:false,
+      af:'ONWAAR！sal 是未來式，不是過去式。',
+      zh:'錯！sal 是未來式（will），不是過去式！過去式用 het。sal = 將要做的事，het = 已經做的事。',
+      en:'FALSE! "sal" is for FUTURE, not past! Future = sal, Past = het.'},
+    {type:'tf',q:'<b>kan</b> en <b>mag</b> beteken presies dieselfde。',ans:false,
+      af:'ONWAAR！kan = 能力，mag = 許可。',
+      zh:'錯！kan = 能力（can），你做不做得到。mag = 許可（may），你被不被允許。例如：你 kan（能）跳很高，但老師說你不 mag（不可以）在教室裡跳。',
+      en:'FALSE! kan = ability (CAN do it), mag = permission (MAY do it). You CAN jump high, but you MAY NOT jump in class!'},
+
+    {type:'sentence',q:'Skryf n sin in die <b>toekoms</b> met <b>sal</b>。<br>（用 sal 寫一個未來式句子）',
+      required:['sal'],minWords:3,
+      example:'Ek sal more fiets ry.',
+      af:'Gebruik "sal" vir die toekoms。',
+      zh:'用 sal（將會）造一個未來式的句子。例如：Ek sal more fiets ry. = 我明天將會騎腳踏車。sal + 動詞 = 未來要做的事！',
+      en:'Use "sal" (will) for a future sentence. Example: Ek sal more fiets ry. = I will ride a bike tomorrow.'},
+    {type:'sentence',q:'Skryf n sin in die <b>verlede tyd</b> met <b>het</b>。<br>（用 het 寫一個過去式句子）',
+      required:['het'],minWords:3,
+      example:'Ek het gister sjokolade geeet.',
+      af:'Gebruik "het" vir die verlede tyd。',
+      zh:'用 het 造一個過去式的句子。例如：Ek het gister sjokolade geeet. = 我昨天吃了巧克力。記得：het + ge-動詞！',
+      en:'Use "het" for a past tense sentence. Example: Ek het gister sjokolade geeet. = I ate chocolate yesterday.'},
+  ];
+  return shuffle(pool).slice(0,10);
+}
+
+// =============================================
+var TOPICS=[
+  {title:'Voor- en Agtervoegsels',desc:'Prefixes & Suffixes',icon:'\uD83D\uDD24',color:'#e8f4fd',gen:makeVoorAgterQs,types:['MCQ','Tik','W/O','Skryf']},
+  {title:'Voegwoorde',desc:'Conjunctions',icon:'\uD83D\uDD17',color:'#fef9ec',gen:makeVoegwoordeQs,types:['Invul','MCQ','W/O','Skryf']},
+  {title:'Afleidings',desc:'Derivatives',icon:'\uD83C\uDF31',color:'#eafaf1',gen:makeAfleidingsQs,types:['Tik','MCQ','W/O','Skryf']},
+  {title:'Samestellings',desc:'Compound Words',icon:'\uD83E\uDDE9',color:'#fdf0f8',gen:makeSamestellingsQs,types:['Tik','MCQ','Pas','Skryf']},
+  {title:'Kappies en Deeltekens',desc:'Circumflex & Diaeresis',icon:'\u00E2\u00EB',color:'#fff3e0',gen:makeKappiesQs,types:['MCQ','W/O','Skryf']},
+  {title:'Afkortings & Akronieme',desc:'Abbreviations',icon:'\uD83D\uDCDD',color:'#e8f8f5',gen:makeAfkortingsQs,types:['Tik','MCQ','W/O','Skryf']},
+  {title:'Ho\u00ebfrekwensiewoorde',desc:'High-frequency Words',icon:'\u2B50',color:'#eaf0fb',gen:makeHoefrekQs,types:['Tik','MCQ','W/O','Skryf']},
+  {title:'Byvoeglike Naamwoorde',desc:'Adjectives',icon:'\uD83C\uDFA8',color:'#fdecea',gen:makeByvoeglikQs,types:['MCQ','Tik','W/O','Skryf']},
+  {title:'Hulpwerkwoorde',desc:'Auxiliary Verbs',icon:'\u2699\uFE0F',color:'#f4f0fb',gen:makeHulpwerkQs,types:['Invul','MCQ','W/O','Skryf']},
 ];
 
-// ============================================================
-function shuffle(arr) { return [...arr].sort(() => Math.random()-0.5); }
-function pick(arr,n=4) { return shuffle(arr).slice(0,n); }
-function mcq(q, correct, wrong, explain_af, explain_en, tag="Kies die korrekte antwoord") {
-  const ops = shuffle([correct, ...pick(wrong,3)]);
-  return { type:"mcq", tag, q, correct, ops, explain_af, explain_en };
+var curTopic=-1,qs=[],qi=0,sc=0,isDone=false;
+function showScreen(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});document.getElementById(id).classList.add('active')}
+
+function renderTopics(){
+  var g=document.getElementById('tgrid'),html='';
+  var tbc={'MCQ':'tb-mcq','Tik':'tb-type','W/O':'tb-tf','Invul':'tb-fill','Pas':'tb-match','Skryf':'tb-sen'};
+  for(var i=0;i<TOPICS.length;i++){
+    var t=TOPICS[i];
+    var badges=t.types.map(function(tp){return '<span class="typebadge '+(tbc[tp]||'')+'">'+tp+'</span>'}).join('');
+    html+='<button class="tbtn" data-idx="'+i+'"><div class="ticon" style="background:'+t.color+'">'+t.icon+'</div><div><div class="tt">'+t.title+'</div><div class="td">'+t.desc+'</div><div class="typebadges">'+badges+'</div></div><div class="tpts">10</div></button>';
+  }
+  g.innerHTML=html;
+  g.addEventListener('click',function(e){var btn=e.target.closest('.tbtn');if(btn)startTopic(parseInt(btn.getAttribute('data-idx')))});
 }
 
-// ============================================================
-// 1. VOOR- EN AGTERVOEGSELS
-// ============================================================
-function makePrefixQs() {
-  const data = [
-    ["on","gelukkig","ongelukkig","unhappy","wees","gelukkig","bly","vrolik"],
-    ["her","skryf","herskryf","rewrite","doen","skryf","maak","lees"],
-    ["be","handel","behandel","treat / handle","praat","handel","werk","dink"],
-    ["mis","verstaan","misverstaan","misunderstand","goed verstaan","snap","begryp","weet"],
-    ["oor","doen","oordoen","overdo","onderdoen","doen","maak","werk"],
-    ["onder","teken","onderteken","sign (undersign)","bo-teken","teken","skryf","druk"],
-    ["bo","natuurlik","bonatuurlik","supernatural","onnatuurlik","natuur","hemel","wonder"],
-  ];
-  return data.map(([pref,base,word,en,w1,w2,w3,w4])=>
-    mcq(
-      `Watter woord word gevorm as jy die voorvoegsel "<strong>${pref}-</strong>" voor "<strong>${base}</strong>" sit?`,
-      word,
-      [w1,w2,w3,w4].filter(x=>x!==word),
-      `🌟 <strong>${pref}-</strong> + <strong>${base}</strong> = <strong>${word}</strong><br>Die voorvoegsel "<strong>${pref}-</strong>" word <em>voor</em> die basiswoord geplaas om 'n nuwe woord te maak.`,
-      `The prefix "<strong>${pref}-</strong>" is added to the beginning of "<strong>${base}</strong>" to make a new word: "<strong>${word}</strong>" (${en}).`,
-      "Voorsetsels"
-    )
-  );
-}
-function makeSuffixQs() {
-  const data = [
-    ["heid","vry","vryheid","freedom","vrylaat","vrymaak","vrywees","vrygee"],
-    ["lik","dag","daagliks","daily","dae","daagte","dagnag","daagse"],
-    ["ing","maak","making","making/creation","makery","gemaak","gemake","makers"],
-    ["er","leer","leerder","learner","leerling","leeraar","leermees","leerder"],
-    ["te","koud","koue","cold (noun)","koudheid","koudigheid","kougheid","koudste"],
-    ["skap","vriend","vriendskap","friendship","vriendelik","vriendin","vriendskappe","vriendkring"],
-  ];
-  return data.map(([suf,base,word,en,w1,w2,w3,w4])=>
-    mcq(
-      `Watter agtervoegsel maak jy as jy "<strong>-${suf}</strong>" aan "<strong>${base}</strong>" heg?`,
-      word,
-      [w1,w2,w3,w4].filter(x=>x!==word),
-      `🌟 <strong>${base}</strong> + <strong>-${suf}</strong> = <strong>${word}</strong><br>Die agtervoegsel "<strong>-${suf}</strong>" word <em>agter</em> die basiswoord geplaas.`,
-      `The suffix "<strong>-${suf}</strong>" is added to the END of "<strong>${base}</strong>" to make "<strong>${word}</strong>" (${en}).`,
-      "Agtervoegsels"
-    )
-  );
+function startTopic(idx){curTopic=idx;qs=TOPICS[idx].gen();qi=0;sc=0;isDone=false;document.getElementById('qlabel').textContent=TOPICS[idx].title;showScreen('quiz');renderQ()}
+
+function renderQ(){
+  isDone=false;var q=qs[qi],total=qs.length;
+  document.getElementById('qctr').textContent=(qi+1)+'/'+total;
+  document.getElementById('pfill').style.width=((qi/total)*100)+'%';
+  var card=document.getElementById('qcard'),html='';
+  var tagC={'mcq':'tag-mcq','type':'tag-type','tf':'tag-tf','fill':'tag-fill','match':'tag-match','sentence':'tag-sen'}[q.type]||'tag-mcq';
+  var tagL={'mcq':'Kies / Choose','type':'Tik / Type','tf':'Waar of Onwaar','fill':'Vul In / Fill In','match':'Pas Bymekaar / Match','sentence':'\u270D\uFE0F Skryf n sin / Write a sentence'}[q.type]||'';
+  html+='<div class="qtag '+tagC+'">'+tagL+'</div>';
+  html+='<div class="qtxt">'+q.q+'</div>';
+  if(q.sen) html+='<div class="qsen">'+q.sen+'</div>';
+
+  if(q.type==='mcq') html+=buildMCQ(q);
+  else if(q.type==='type'||q.type==='fill') html+=buildType(q);
+  else if(q.type==='tf') html+=buildTF(q);
+  else if(q.type==='match') html+=buildMatch(q);
+  else if(q.type==='sentence') html+=buildSentence(q);
+
+  html+='<div class="fb" id="fbBox"><div class="fbt" id="fbTitle"></div><div id="fbSections"></div></div>';
+  html+='<button class="nbtn" id="nxtBtn">Volgende vraag \u2192</button>';
+  card.innerHTML=html;
+  attachH(q);
 }
 
-// ============================================================
-// 2. VOEGWOORDE (Conjunctions)
-// ============================================================
-function makeVoegwoordeQs() {
-  const sentences = [
-    { blank:"Ek eet pap ___ ek is honger.", ans:"want", ops:["maar","of","sodat"], af:"<strong>want</strong> word gebruik om 'n rede te gee — dit beteken 'because'.", en:"'want' = 'because' — it gives a reason for the action." },
-    { blank:"Sy wil sing ___ sy kan nie.", ans:"maar", ops:["want","en","sodat"], af:"<strong>maar</strong> wys 'n teenstelling — iets teenoordienste gebeur.", en:"'maar' = 'but' — it shows a contrast or opposite idea." },
-    { blank:"Jy kan loop ___ ry na die skool.", ans:"of", ops:["en","maar","want"], af:"<strong>of</strong> gee 'n keuse tussen twee dinge.", en:"'of' = 'or' — it gives two choices." },
-    { blank:"Die seun ___ die meisie speel saam.", ans:"en", ops:["of","maar","want"], af:"<strong>en</strong> verbind twee dinge saam.", en:"'en' = 'and' — it joins two things together." },
-    { blank:"Ek leer hard ___ ek goed kan doen.", ans:"sodat", ops:["want","maar","of"], af:"<strong>sodat</strong> verduidelik die doel van iets — hoekom jy dit doen.", en:"'sodat' = 'so that' — it explains the purpose or goal." },
-    { blank:"Hy was moeg, ___ hy het geslaap.", ans:"dus", ops:["maar","of","want"], af:"<strong>dus</strong> wys gevolg — wat gebeur AS gevolg van iets.", en:"'dus' = 'therefore/so' — it shows a result." },
-    { blank:"___ jy klaar is, kan jy speel.", ans:"Wanneer", ops:["Maar","Want","Of"], af:"<strong>Wanneer</strong> = 'When' — dit verduidelik TYD.", en:"'Wanneer' = 'When' — it tells us about timing." },
-    { blank:"Ek ken hom ___ hy my broer is.", ans:"omdat", ops:["maar","of","sodat"], af:"<strong>omdat</strong> = 'because' — dit gee 'n rede.", en:"'omdat' = 'because' — it explains why something happens." },
-    { blank:"Sy studeer ___ sy slaap.", ans:"terwyl", ops:["maar","want","sodat"], af:"<strong>terwyl</strong> = 'while' — twee dinge gebeur gelyktydig.", en:"'terwyl' = 'while' — two things happen at the same time." },
-    { blank:"Sy is slim ___ hardwerkend.", ans:"en", ops:["of","maar","want"], af:"<strong>en</strong> verbind twee eienskappe saam.", en:"'en' = 'and' — joins two describing words together." },
-  ];
-  return sentences.map(({blank, ans, ops, af, en})=>({
-    type:"mcq",
-    tag:"Voegwoorde",
-    q:`Kies die regte voegwoord (conjunction) vir die sin:`,
-    sentence: blank,
-    correct: ans,
-    ops: shuffle([ans,...ops]),
-    explain_af: af,
-    explain_en: en
-  }));
+function buildMCQ(q){var letters=['A','B','C','D'];var h='<div class="opts">';for(var i=0;i<q.opts.length;i++){h+='<button class="obtn" data-val="'+encodeURIComponent(q.opts[i])+'"><span class="olet">'+letters[i]+'</span> '+q.opts[i]+'</button>'}h+='</div>';return h}
+function buildType(q){var h='<div class="type-area"><div class="type-row"><input class="type-input" id="typeInput" type="text" placeholder="Tik jou antwoord..." autocomplete="off"><button class="type-submit" id="typeSubmit">\u2713</button></div>';if(q.hint) h+='<div class="type-hint">\uD83D\uDCA1 '+q.hint+'</div>';h+='<div class="correct-ans-show" id="correctShow" style="display:none"></div></div>';return h}
+function buildTF(q){return '<div class="tf-row"><button class="tf-btn" data-val="true"><span class="tf-icon">\u2705</span>Waar<br><small>True</small></button><button class="tf-btn" data-val="false"><span class="tf-icon">\u274C</span>Onwaar<br><small>False</small></button></div>'}
+function buildMatch(q){var left=q.pairs.map(function(p){return p[0]});var right=shuffle(q.pairs.map(function(p){return p[1]}));var h='<div class="match-area"><div class="match-instr">\uD83D\uDC46 Klik links, dan regs / Click left then right</div><div class="match-grid"><div class="match-col" id="matchL">';for(var i=0;i<left.length;i++) h+='<div class="match-item" data-side="L" data-idx="'+i+'" data-val="'+left[i]+'">'+left[i]+'</div>';h+='</div><div class="match-col" id="matchR">';for(var i=0;i<right.length;i++) h+='<div class="match-item" data-side="R" data-idx="'+i+'" data-val="'+right[i]+'">'+right[i]+'</div>';h+='</div></div><div class="match-score" id="matchScore">0/'+left.length+' gepas</div></div>';return h}
+
+function buildSentence(q){
+  var h='<div class="sen-area">';
+  h+='<textarea class="sen-textarea" id="senInput" placeholder="Skryf jou sin hier... / Write your sentence here..."></textarea>';
+  h+='<button class="sen-submit" id="senSubmit">\u270D\uFE0F Kyk my sin / Check my sentence</button>';
+  h+='<div class="sen-reqs" id="senReqs"></div>';
+  h+='<div class="sen-example" id="senExample" style="display:none"></div>';
+  h+='<div class="correct-ans-show" id="correctShow" style="display:none"></div>';
+  h+='</div>';
+  return h;
 }
 
-// ============================================================
-// 3. AFLEIDINGS (Derivatives)
-// ============================================================
-function makeAfleidingsQs() {
-  const items = [
-    { base:"speel", derived:"speler", tag:"Afleiding", wrong:["speelbaar","gespeel","speelster","speelery"],
-      af:"<strong>speel → speler</strong> — ons voeg <em>-er</em> by om iemand te beskryf wat iets doen.",
-      en:"speel (play) → speler (player) — we add '-er' to describe the person who does the action." },
-    { base:"werk", derived:"werker", tag:"Afleiding", wrong:["werkery","gewerk","werkbaar","werklikheid"],
-      af:"<strong>werk → werker</strong> — die persoon wat werk.",
-      en:"werk (work) → werker (worker) — the person who works." },
-    { base:"skryf", derived:"skrywer", tag:"Afleiding", wrong:["geskryf","skryfsel","skryfbaar","skryftaak"],
-      af:"<strong>skryf → skrywer</strong> — let op die spelling verandering (f→w).",
-      en:"skryf (write) → skrywer (writer) — notice the spelling change f→w." },
-    { base:"leer", derived:"leerling", tag:"Afleiding", wrong:["leerder","geleer","leerbaar","leerkrag"],
-      af:"<strong>leer → leerling</strong> — 'n leerling is 'n kind wat leer.",
-      en:"leer (learn) → leerling (learner/student)." },
-    { base:"kook", derived:"kookster", tag:"Afleiding", wrong:["gekook","kookery","kooksel","koker"],
-      af:"<strong>kook → kookster</strong> — '-ster' word gebruik vir 'n vroulike persoon.",
-      en:"kook (cook) → kookster (female cook) — '-ster' is for a female person doing the action." },
-    { base:"sing", derived:"sanger", tag:"Afleiding", wrong:["gesing","singery","singeling","singbaar"],
-      af:"<strong>sing → sanger</strong> — die persoon wat sing.",
-      en:"sing → sanger (singer)." },
-    { base:"ryd", derived:"ryding", tag:"Afleiding", wrong:["geryde","ryder","ryderlik","rywerk"],
-      af:"<strong>ry → ryding</strong> — '-ing' maak 'n handeling 'n selfstandige naamwoord.",
-      en:"ry (ride) → ryding (riding) — '-ing' turns a verb into a noun." },
-    { base:"vrolik", derived:"vroelikheid", tag:"Afleiding", wrong:["vroelik","vrolikste","vroelikend","vroelikheid"],
-      af:"<strong>vrolik → vroelikheid</strong> — '-heid' maak 'n eienskap 'n naamwoord.",
-      en:"vrolik (cheerful) → vroelikheid (cheerfulness) — '-heid' turns an adjective into a noun." },
-  ];
-  return items.map(({base,derived,wrong,af,en,tag})=>({
-    type:"mcq",
-    tag,
-    q:`Wat is die afleiding van die woord "<strong>${base}</strong>"?`,
-    correct: derived,
-    ops: shuffle([derived,...pick(wrong,3)]),
-    explain_af: af,
-    explain_en: en
-  }));
-}
+// =============================================
+// ATTACH HANDLERS
+// =============================================
+function attachH(q){
+  var nxt=document.getElementById('nxtBtn');
+  nxt.addEventListener('click',function(){qi++;if(qi>=qs.length)showScore();else renderQ()});
 
-// ============================================================
-// 4. SAMESTELLINGS (Compound Words)
-// ============================================================
-function makeSamestellingsQs() {
-  const items = [
-    { w1:"skoene", w2:"winkel", answer:"skoenewinkel", wrong:["winkelskoene","skoenekoop","winkelhoed"],
-      af:"<strong>skoene + winkel = skoenewinkel</strong> — 'n winkel wat skoene verkoop.", en:"shoe + shop = shoe shop" },
-    { w1:"boek", w2:"rak", answer:"boekrak", wrong:["rakboek","boekkas","leestafel"],
-      af:"<strong>boek + rak = boekrak</strong> — 'n rak vir boeke.", en:"book + shelf = bookshelf" },
-    { w1:"tand", w2:"pasta", answer:"tandpasta", wrong:["pastatand","tandkwas","mondspoel"],
-      af:"<strong>tand + pasta = tandpasta</strong> — pasta om jou tande te was.", en:"tooth + paste = toothpaste" },
-    { w1:"son", w2:"blom", answer:"sonblom", wrong:["blomson","blomveld","sunblom"],
-      af:"<strong>son + blom = sonblom</strong> — 'n blom wat na die son draai.", en:"sun + flower = sunflower" },
-    { w1:"skool", w2:"bord", answer:"skoolbord", wrong:["bordskool","skoolklas","krytstander"],
-      af:"<strong>skool + bord = skoolbord</strong> — die swartbord in 'n skool.", en:"school + board = blackboard/schoolboard" },
-    { w1:"water", w2:"val", answer:"waterval", wrong:["valwater","waterstroom","rivierval"],
-      af:"<strong>water + val = waterval</strong> — water wat val.", en:"water + fall = waterfall" },
-    { w1:"huis", w2:"werk", answer:"huiswerk", wrong:["werkshuis","tuiswerk","skoolwerk"],
-      af:"<strong>huis + werk = huiswerk</strong> — werk wat jy tuis doen!", en:"house + work = homework" },
-    { w1:"brood", w2:"mes", answer:"broodmes", wrong:["mesbrood","broodsny","broodknip"],
-      af:"<strong>brood + mes = broodmes</strong> — 'n mes om brood mee te sny.", en:"bread + knife = bread knife" },
-  ];
-  return items.map(({w1,w2,answer,wrong,af,en})=>({
-    type:"mcq",
-    tag:"Samestellings",
-    q:`Kombineer <strong>"${w1}"</strong> en <strong>"${w2}"</strong> — wat is die samestelling?`,
-    correct: answer,
-    ops: shuffle([answer,...pick(wrong,3)]),
-    explain_af: af,
-    explain_en: en
-  }));
-}
-
-// ============================================================
-// 5. KAPPIES EN DEELTEKENS
-// ============================================================
-function makeKappiesQs() {
-  const items = [
-    { q:`Watter woord gebruik 'n <strong>kappie (^)</strong>?`, correct:"brûe", wrong:["boeke","honde","gras"],
-      af:"<strong>brûe</strong> — die kappie (^) op die 'û' wys dat die 'u' lank uitgespreek word.",
-      en:"'brûe' (bridges) uses a circumflex (^) on the 'û' to show a long vowel sound." },
-    { q:`In watter woord is daar 'n <strong>deelteken (¨)</strong>?`, correct:"naïef", wrong:["naief","nayef","naaf"],
-      af:"<strong>naïef</strong> — die deelteken (¨) op die 'ï' wys dat die twee klinkers <em>apart</em> uitgespreek word: na-ï-ef.",
-      en:"'naïef' uses a diaeresis (¨) on the 'ï' to show that the two vowels are pronounced separately: na-ee-ef." },
-    { q:`Kies die korrekte spelling:`, correct:"môre", wrong:["more","moorre","möre"],
-      af:"<strong>môre</strong> (tomorrow) het 'n kappie op die 'ô' — sonder die kappie beteken 'more' iets anders (more/extra).",
-      en:"'môre' (tomorrow) needs the circumflex on 'ô'. Without it, 'more' means extra/more!" },
-    { q:`Watter woord het 'n <strong>kappie</strong> nodig?`, correct:"wêreld", wrong:["wereld","wêrled","werled"],
-      af:"<strong>wêreld</strong> (world) — die kappie op 'ê' is baie belangrik. Dit verander hoe ons die woord uitspreek.",
-      en:"'wêreld' (world) needs the circumflex on 'ê' — it changes the pronunciation of the vowel." },
-    { q:`Kies die sin met die korrekte gebruik van 'n deelteken:`, correct:"Sy het geëet.", wrong:["Sy het geeet.","Sy het ge-eet.","Sy het geëêt."],
-      af:"<strong>geëet</strong> — die deelteken op die tweede 'e' wys dat ons die twee e's <em>apart</em> uitspreek: ge-eet.",
-      en:"'geëet' (ate) — the diaeresis on the second 'e' shows we say both e's separately: ge-eet." },
-    { q:`In watter woord is die kappie KORREK gebruik?`, correct:"hê", wrong:["he","hè","ha"],
-      af:"<strong>hê</strong> (to have) het 'n kappie op die 'ê' — dit help ons om dit van 'he' (hey) te onderskei.",
-      en:"'hê' (to have) uses a circumflex — without it, the word would look like a greeting 'he'!" },
-    { q:`Watter woord gebruik 'n deelteken om twee klinkers apart te wys?`, correct:"beïnvloed", wrong:["beinvloed","beïnvloede","beïnfloed"],
-      af:"<strong>beïnvloed</strong> (influence) — die deelteken op 'ï' wys: 'e' en 'i' word apart uitgespreek: be-ïn-vloed.",
-      en:"'beïnvloed' (to influence) — the diaeresis shows 'e' and 'i' are separate sounds, not a diphthong." },
-    { q:`Kies die korrekte spelling van die woord vir "feet":`, correct:"voête", wrong:["voete","voëte","voete"],
-      af:"<strong>voête</strong> — die kappie wys 'n langer klank op die 'ê'.",
-      en:"'voête' (feet) uses a circumflex on 'ê' to indicate a longer vowel sound." },
-  ];
-  return items.map(({q,correct,wrong,af,en})=>({
-    type:"mcq", tag:"Kappies & Deeltekens",
-    q, correct,
-    ops: shuffle([correct,...pick(wrong,3)]),
-    explain_af: af, explain_en: en
-  }));
-}
-
-// ============================================================
-// 6. AFKORTINGS, AKRONIEME EN VERKORTINGS
-// ============================================================
-function makeAfkortingsQs() {
-  const items = [
-    { q:"Wat beteken die afkorting <strong>RSA</strong>?", correct:"Republiek van Suid-Afrika", wrong:["Rand Suid-Afrikaans","Rys Suid-Afrikaans","Radio Suid-Afrika"],
-      af:"<strong>RSA</strong> = Republiek van Suid-Afrika — dit is ons land se amptelike naam!", en:"RSA = Republic of South Africa — our country's official name." },
-    { q:"Wat beteken die afkorting <strong>VK</strong>?", correct:"Verenigde Koninkryk", wrong:["Vinnige Karretjie","Verskillende Kleure","Vreemde Kultuur"],
-      af:"<strong>VK</strong> = Verenigde Koninkryk — dit is die Afrikaanse naam vir die UK (United Kingdom).", en:"VK = Verenigde Koninkryk = United Kingdom." },
-    { q:"Wat is die volle woord vir die verkorting <strong>bl.</strong>?", correct:"bladsy", wrong:["blou","blad","blomme"],
-      af:"<strong>bl.</strong> = bladsy — ons gebruik dit in boeke om 'n bladsy-nommer aan te dui.", en:"'bl.' = bladsy = page — used in books to show page numbers." },
-    { q:"Wat beteken <strong>d.w.s.</strong>?", correct:"dit wil sê", wrong:["dalk was so","dit was seker","doen wat sê"],
-      af:"<strong>d.w.s.</strong> = dit wil sê — dit word gebruik om iets te verduidelik (= 'that is to say').", en:"'d.w.s.' = dit wil sê = that is to say / i.e." },
-    { q:"Wat beteken die afkorting <strong>ens.</strong>?", correct:"ensovoorts", wrong:["ensomeer","ensometer","ensopas"],
-      af:"<strong>ens.</strong> = ensovoorts — dit beteken 'and so on' in Engels.", en:"'ens.' = ensovoorts = and so on / etc." },
-    { q:"Wat staan <strong>m.a.w.</strong> vir?", correct:"met ander woorde", wrong:["met ander werkwoorde","meer as woorde","maar al woorde"],
-      af:"<strong>m.a.w.</strong> = met ander woorde — dit beteken jy gaan iets anders sê maar dieselfde ding bedoel.", en:"'m.a.w.' = met ander woorde = in other words." },
-    { q:"Watter van die volgende is 'n <strong>akroniem</strong>?", correct:"SAKF", wrong:["bl.","d.w.s.","ens."],
-      af:"'n <strong>akroniem</strong> is 'n afkorting wat as 'n nuwe woord uitgespreek word, soos <strong>SAKF</strong> (Suid-Afrikaanse Krieket Federasie).", en:"An acronym is an abbreviation spoken as a word, like SAKF." },
-    { q:"Wat beteken <strong>nr.</strong>?", correct:"nommer", wrong:["nader","niks","nag"],
-      af:"<strong>nr.</strong> = nommer — soos nr. 5 = nommer 5.", en:"'nr.' = nommer = number." },
-  ];
-  return items.map(({q,correct,wrong,af,en})=>({
-    type:"mcq", tag:"Afkortings & Akronieme",
-    q, correct,
-    ops: shuffle([correct,...pick(wrong,3)]),
-    explain_af: af, explain_en: en
-  }));
-}
-
-// ============================================================
-// 7. HOËFREKWENSIEWOORDE
-// ============================================================
-function makeHoefrekQs() {
-  const items = [
-    { q:"Kies die korrekte spelling:", correct:"omdat", wrong:["om dat","omtdat","om-dat"],
-      af:"<strong>omdat</strong> word as EEN woord geskryf — dit beteken 'because'.", en:"'omdat' (because) is one word — don't split it!" },
-    { q:"Kies die korrekte spelling:", correct:"alhoewel", wrong:["al hoewel","alhewel","alohewel"],
-      af:"<strong>alhoewel</strong> is EEN woord wat 'although' beteken.", en:"'alhoewel' (although) is one word." },
-    { q:"Kies die korrekte spelling:", correct:"nêrens", wrong:["nerens","nêren","neerens"],
-      af:"<strong>nêrens</strong> het 'n kappie op die 'ê' — dit beteken 'nowhere'.", en:"'nêrens' (nowhere) needs the circumflex on 'ê'." },
-    { q:"Kies die korrekte spelling:", correct:"gelukkig", wrong:["gelukig","gellukkig","glukig"],
-      af:"<strong>gelukkig</strong> — dubbel 'k' en 'k' — dit beteken 'lucky/fortunately'.", en:"'gelukkig' (lucky/fortunately) — double letters in the middle." },
-    { q:"Watter woord beteken 'immediately'?", correct:"onmiddellik", wrong:["inmiddellik","onmidlik","anmiddellik"],
-      af:"<strong>onmiddellik</strong> = dadelik, onmiddellik — dit beteken iets gebeur sonder vertraging.", en:"'onmiddellik' = immediately — no delay at all!" },
-    { q:"Kies die korrekte spelling:", correct:"beslis", wrong:["besliss","beshis","besliss"],
-      af:"<strong>beslis</strong> beteken 'definitely' of 'certainly'.", en:"'beslis' = definitely / certainly." },
-    { q:"Watter woord beteken 'therefore'?", correct:"daarom", wrong:["daaron","daarvoor","daaom"],
-      af:"<strong>daarom</strong> = therefore, dus — dit verduidelik 'n rede of gevolg.", en:"'daarom' = therefore / that's why." },
-    { q:"Kies die korrekte spelling:", correct:"gewoonlik", wrong:["gewoonLik","gewonik","gewoonlik✓","gewonlik"],
-      af:"<strong>gewoonlik</strong> beteken 'usually' of 'normally'.", en:"'gewoonlik' = usually / normally." },
-    { q:"Watter woord beteken 'already'?", correct:"reeds", wrong:["alreeds","algereeds","raeds"],
-      af:"<strong>reeds</strong> = al, alreeds — dit beteken iets het al gebeur.", en:"'reeds' = already." },
-    { q:"Kies die korrekte spelling vir 'perhaps':", correct:"miskien", wrong:["miskien✓","mischien","miskeen","miskiene"],
-      af:"<strong>miskien</strong> beteken 'perhaps' of 'maybe'.", en:"'miskien' = perhaps / maybe." },
-  ];
-  return items.map(({q,correct,wrong,af,en})=>({
-    type:"mcq", tag:"Hoëfrekwensiewoorde",
-    q, correct,
-    ops: shuffle([correct,...pick(wrong.filter(x=>x!==correct+"✓"),3)]),
-    explain_af: af, explain_en: en
-  }));
-}
-
-// ============================================================
-// 8. BYVOEGLIKE NAAMWOORDE
-// ============================================================
-function makeByvoeglikQs() {
-  const items = [
-    { q:`Identifiseer die <strong>byvoeglike naamwoord</strong> in: <em>"Die groot hond byt."</em>`, correct:"groot", wrong:["hond","byt","die"],
-      af:"<strong>groot</strong> is die byvoeglike naamwoord — dit beskryf hoe die hond lyk (groot/groot).", en:"'groot' (big) is the adjective — it describes what the dog is like." },
-    { q:`Watter woord is die <strong>byvoeglike naamwoord</strong> in: <em>"Sy dra 'n rooi rok."</em>?`, correct:"rooi", wrong:["dra","rok","sy"],
-      af:"<strong>rooi</strong> beskryf die kleur van die rok — kleurwoorde is altyd byvoeglike naamwoorde.", en:"'rooi' (red) describes the colour of the dress — colour words are always adjectives." },
-    { q:`Kies die <strong>byvoeglike naamwoord</strong>:`, correct:"versigtig", wrong:["loop","boom","skool"],
-      af:"<strong>versigtig</strong> is 'n byvoeglike naamwoord — dit beskryf hoe iemand is (careful).", en:"'versigtig' (careful) is an adjective — it describes a person's quality." },
-    { q:`Wat is die <strong>trappe van vergelyking</strong> vir "groot"?`, correct:"groot – groter – grootste", wrong:["groot – grootste – groter","groot – grooter – grootste","groter – groot – grootste"],
-      af:"<strong>groot → groter → grootste</strong> — Dit is die drie trappe: positief, komparatief, superlatief.", en:"big → bigger → biggest — these are the three degrees of comparison." },
-    { q:`Wat is die trappe vir <strong>"goed"</strong>?`, correct:"goed – beter – beste", wrong:["goed – goeder – goedste","goed – beter – beteste","goed – bester – beste"],
-      af:"<strong>goed → beter → beste</strong> — Hierdie woord verander heeltemal (onreëlmatig)!", en:"good → better → best — this adjective is irregular (it changes completely)!" },
-    { q:`Watter sin gebruik die byvoeglike naamwoord <strong>korrek</strong>?`, correct:"Die slim seun leer hard.", wrong:["Die seun slim leer hard.","Die seun leer slim hard.","Slim die seun leer."],
-      af:"<strong>slim</strong> staan voor die naamwoord 'seun' — byvoeglike naamwoorde kom gewoonlik voor die naamwoord.", en:"'slim' (clever) comes BEFORE the noun 'seun' (boy) — adjectives usually come before the noun in Afrikaans." },
-    { q:`Watter is die <strong>superlatief</strong> van "vinnig"?`, correct:"vinnigste", wrong:["vinniger","vinnigte","vinnigst"],
-      af:"<strong>vinnigste</strong> is die superlatief — dit beteken die VINNIGSTE van almal.", en:"'vinnigste' (fastest) is the superlative — the most extreme degree." },
-    { q:`Watter woord is GEEN byvoeglike naamwoord nie?`, correct:"hardloop", wrong:["koud","gelukkig","mooi"],
-      af:"<strong>hardloop</strong> is 'n <em>werkwoord</em> — dit beskryf 'n handeling, nie 'n eienskap nie.", en:"'hardloop' (to run) is a VERB, not an adjective — it describes an action, not a quality." },
-  ];
-  return items.map(({q,correct,wrong,af,en})=>({
-    type:"mcq", tag:"Byvoeglike Naamwoorde",
-    q, correct,
-    ops: shuffle([correct,...pick(wrong,3)]),
-    explain_af: af, explain_en: en
-  }));
-}
-
-// ============================================================
-// 9. HULPWERKWOORDE
-// ============================================================
-function makeHulpwerkQs() {
-  const items = [
-    { q:`Kies die korrekte hulpwerkwoord: "Ek ___ môre gaan."`, correct:"sal", wrong:["is","was","het"],
-      af:"<strong>sal</strong> is die hulpwerkwoord vir die toekoms (future tense) — iets wat gaan gebeur.", en:"'sal' = 'will/shall' — used for future tense." },
-    { q:`Kies die regte hulpwerkwoord: "Hulle ___ gister gesing."`, correct:"het", wrong:["sal","kan","mag"],
-      af:"<strong>het</strong> is die hulpwerkwoord vir die verlede tyd (past tense) in Afrikaans.", en:"'het' is used for past tense in Afrikaans — like 'have/had' in English." },
-    { q:`Watter hulpwerkwoord beteken 'to be able to'?`, correct:"kan", wrong:["moet","mag","sal"],
-      af:"<strong>kan</strong> = 'can / to be able to' — dit wys vermoë (ability).", en:"'kan' = can / to be able to — shows ability." },
-    { q:`Watter hulpwerkwoord wys toestemming (permission)?`, correct:"mag", wrong:["kan","moet","sal"],
-      af:"<strong>mag</strong> = 'may' — dit vra of gee toestemming (permission).", en:"'mag' = 'may' — it asks for or gives permission." },
-    { q:`Kies die regte sin: "Ons ___ elke dag oefen."`, correct:"moet", wrong:["sal","het","was"],
-      af:"<strong>moet</strong> = 'must/have to' — dit wys 'n verpligting (obligation).", en:"'moet' = must / have to — it shows something is obligatory." },
-    { q:`Wat is die <strong>hulpwerkwoord</strong> in: "Sy was moeg."`, correct:"was", wrong:["sy","moeg","na"],
-      af:"<strong>was</strong> is die verlede tyd van 'is' — dit is 'n hulpwerkwoord wat tyd aandui.", en:"'was' is the past tense of 'is' — an auxiliary verb showing past time." },
-    { q:`Kies die korrekte sin in die <strong>toekoms</strong>:`, correct:"Ek sal môre speel.", wrong:["Ek het môre gespeel.","Ek speel môre.","Ek was môre speel."],
-      af:"<strong>Ek sal môre speel</strong> — 'sal' + werkwoord vorm die toekoms in Afrikaans.", en:"'Ek sal môre speel' — 'sal' + verb = future tense in Afrikaans." },
-    { q:`Watter hulpwerkwoord ontbreek? "Hy ___ nie kon kom nie."`, correct:"het", wrong:["sal","mag","kan"],
-      af:"<strong>het</strong> — 'het nie kon kom nie' is die verlede tyd van 'kan nie kom nie'. Twee hulpwerkwoorde saam!", en:"'het' — 'het nie kon kom nie' = past tense of 'cannot come'. Two auxiliaries together!" },
-  ];
-  return items.map(({q,correct,wrong,af,en})=>({
-    type:"mcq", tag:"Hulpwerkwoorde",
-    q, correct,
-    ops: shuffle([correct,...pick(wrong,3)]),
-    explain_af: af, explain_en: en
-  }));
-}
-
-// ============================================================
-// STATE
-// ============================================================
-let currentTopic = null;
-let questions = [];
-let qIndex = 0;
-let score = 0;
-let answered = false;
-
-// ============================================================
-// RENDER TOPICS
-// ============================================================
-function renderTopics() {
-  const grid = document.getElementById("topic-grid");
-  grid.innerHTML = TOPICS.map((t,i)=>`
-    <button class="topic-btn" onclick="startTopic(${i})">
-      <div class="topic-icon" style="background:${t.color}; font-size:1.5rem;">${t.icon}</div>
-      <div>
-        <div class="t-title">${t.title}</div>
-        <div class="t-desc">${t.desc}</div>
-      </div>
-      <div class="t-pts">10 vrae</div>
-    </button>
-  `).join("");
-}
-
-function showTopics() {
-  document.getElementById("topic-screen").style.display = "";
-  document.getElementById("quiz-screen").style.display = "none";
-  document.getElementById("score-screen").style.display = "none";
-}
-
-// ============================================================
-// START TOPIC
-// ============================================================
-function startTopic(idx) {
-  currentTopic = idx;
-  questions = TOPICS[idx].questions();
-  qIndex = 0; score = 0; answered = false;
-  document.getElementById("topic-screen").style.display = "none";
-  document.getElementById("quiz-screen").style.display = "";
-  document.getElementById("score-screen").style.display = "none";
-  document.getElementById("q-topic-label").textContent = TOPICS[idx].title;
-  renderQuestion();
-}
-
-function retryTopic() { startTopic(currentTopic); }
-
-// ============================================================
-// RENDER QUESTION
-// ============================================================
-function renderQuestion() {
-  answered = false;
-  const q = questions[qIndex];
-  const total = questions.length;
-  document.getElementById("q-counter").textContent = `${qIndex+1} / ${total}`;
-  document.getElementById("progress-fill").style.width = `${(qIndex/total)*100}%`;
-  document.getElementById("q-type-tag").textContent = q.tag || "";
-  document.getElementById("q-text").innerHTML = q.q;
-  document.getElementById("q-sentence").innerHTML = q.sentence ? `"${q.sentence}"` : "";
-  document.getElementById("feedback-box").className = "feedback-box";
-  document.getElementById("next-btn").className = "next-btn";
-
-  const optArea = document.getElementById("options-area");
-  const inpArea = document.getElementById("input-area");
-
-  if (q.type === "mcq") {
-    inpArea.style.display = "none";
-    optArea.innerHTML = "";
-    const letters = ["A","B","C","D"];
-    q.ops.forEach((op,i)=>{
-      const btn = document.createElement("button");
-      btn.className = "opt-btn";
-      btn.innerHTML = `<span class="opt-letter">${letters[i]}</span> ${op}`;
-      btn.onclick = () => checkMCQ(op, btn);
-      optArea.appendChild(btn);
+  if(q.type==='mcq'){
+    var btns=document.querySelectorAll('.obtn');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      if(isDone) return; isDone=true;
+      var val=decodeURIComponent(b.getAttribute('data-val'));
+      var ok=(val===q.ans); if(ok) sc++;
+      btns.forEach(function(bb){bb.classList.add('done');var bv=decodeURIComponent(bb.getAttribute('data-val'));if(bv===q.ans)bb.classList.add('ok');else if(bb===b&&!ok)bb.classList.add('no')});
+      showFB(ok,q);
+    })});
+  } else if(q.type==='type'||q.type==='fill'){
+    var inp=document.getElementById('typeInput'),sub=document.getElementById('typeSubmit');
+    var doCheck=function(){
+      if(isDone) return; isDone=true;
+      var val=inp.value.trim().toLowerCase(),ok=(val===q.ans.toLowerCase());
+      if(ok) sc++; inp.disabled=true; sub.disabled=true;
+      if(ok) inp.classList.add('ok');
+      else{inp.classList.add('no');document.getElementById('correctShow').style.display='block';document.getElementById('correctShow').innerHTML='\u2705 Korrekte antwoord: <b>'+q.ans+'</b>'}
+      showFB(ok,q);
+    };
+    sub.addEventListener('click',doCheck);
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter')doCheck()});
+    inp.focus();
+  } else if(q.type==='tf'){
+    var btns=document.querySelectorAll('.tf-btn');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      if(isDone) return; isDone=true;
+      var val=(b.getAttribute('data-val')==='true'),ok=(val===q.ans);
+      if(ok) sc++;
+      btns.forEach(function(bb){bb.classList.add('done');var bv=(bb.getAttribute('data-val')==='true');if(bv===q.ans)bb.classList.add('ok');else if(bb===b&&!ok)bb.classList.add('no')});
+      showFB(ok,q);
+    })});
+  } else if(q.type==='match'){
+    var pairs=q.pairs,selL=null,matched=0,total=pairs.length;
+    document.querySelectorAll('.match-item').forEach(function(it){
+      it.addEventListener('click',function(){
+        if(it.classList.contains('done')) return;
+        var side=it.getAttribute('data-side');
+        if(side==='L'){document.querySelectorAll('[data-side="L"]').forEach(function(x){x.classList.remove('selected')});it.classList.add('selected');selL=it.getAttribute('data-val')}
+        else if(side==='R'&&selL!==null){
+          var rVal=it.getAttribute('data-val'),isOk=false;
+          for(var p=0;p<pairs.length;p++){if(pairs[p][0]===selL&&pairs[p][1]===rVal){isOk=true;break}}
+          var lItem=document.querySelector('[data-side="L"][data-val="'+selL+'"]');
+          if(isOk){lItem.classList.add('ok','done');it.classList.add('ok','done');matched++;document.getElementById('matchScore').textContent=matched+'/'+total+' gepas'}
+          else{lItem.classList.add('no');it.classList.add('no');setTimeout(function(){lItem.classList.remove('no');it.classList.remove('no')},600)}
+          lItem.classList.remove('selected');selL=null;
+          if(matched===total){isDone=true;sc++;showFB(true,q)}
+        }
+      });
     });
-  } else {
-    optArea.innerHTML = "";
-    inpArea.style.display = "flex";
-    const inp = document.getElementById("q-input");
-    inp.value = ""; inp.className = "q-input"; inp.disabled = false;
-    document.getElementById("submit-btn").disabled = false;
+  } else if(q.type==='sentence'){
+    var inp=document.getElementById('senInput'),sub=document.getElementById('senSubmit');
+    sub.addEventListener('click',function(){
+      if(isDone) return;
+      var val=inp.value.trim();
+      if(val.length<3){document.getElementById('senReqs').innerHTML='<span class="nochk">\u26A0 Skryf n langer sin! Write a longer sentence!</span>';return}
+      isDone=true; inp.disabled=true; sub.disabled=true;
+      var words=val.split(/\s+/);
+      var hasWord=false;
+      var valLow=val.toLowerCase();
+      if(q.requireAny){
+        for(var r=0;r<q.required.length;r++){if(valLow.indexOf(q.required[r].toLowerCase())!==-1){hasWord=true;break}}
+      } else {
+        hasWord=true;
+        for(var r=0;r<q.required.length;r++){if(valLow.indexOf(q.required[r].toLowerCase())!==-1){hasWord=true;break}}
+        hasWord=false;
+        for(var r=0;r<q.required.length;r++){if(valLow.indexOf(q.required[r].toLowerCase())!==-1){hasWord=true;break}}
+      }
+      var longEnough=words.length>=(q.minWords||3);
+      var ok=hasWord&&longEnough;
+      if(ok){sc++;inp.classList.add('ok');document.getElementById('senReqs').innerHTML='<span class="chk">\u2705 Goeie sin! Good sentence!</span>'}
+      else{
+        inp.classList.add('no');
+        var msg='';
+        if(!hasWord) msg+='<span class="nochk">\u274C Jy moet die regte woord gebruik! You must use the required word!</span><br>';
+        if(!longEnough) msg+='<span class="nochk">\u274C Sin is te kort! Sentence is too short!</span>';
+        document.getElementById('senReqs').innerHTML=msg;
+      }
+      if(q.example){document.getElementById('senExample').style.display='block';document.getElementById('senExample').innerHTML='\uD83D\uDCDD <b>Voorbeeld / Example:</b><br>'+q.example}
+      showFB(ok,q);
+    });
   }
 }
 
-// ============================================================
-// CHECK MCQ
-// ============================================================
-function checkMCQ(chosen, btn) {
-  if (answered) return;
-  answered = true;
-  const q = questions[qIndex];
-  const correct = chosen === q.correct;
-  if (correct) score++;
-  // Style all buttons
-  document.querySelectorAll(".opt-btn").forEach(b=>{
-    b.disabled = true;
-    const label = b.textContent.trim().slice(1).trim();
-    if (label === q.correct) b.className = "opt-btn correct";
-    else if (b === btn && !correct) b.className = "opt-btn wrong";
-  });
-  showFeedback(correct, q);
-}
-
-function checkInput() {
-  if (answered) return;
-  const q = questions[qIndex];
-  const val = document.getElementById("q-input").value.trim().toLowerCase();
-  const correct = val === q.correct.toLowerCase();
-  if (correct) score++;
-  answered = true;
-  const inp = document.getElementById("q-input");
-  inp.className = "q-input " + (correct?"correct":"wrong");
-  inp.disabled = true;
-  document.getElementById("submit-btn").disabled = true;
-  showFeedback(correct, q);
-}
-
-function showFeedback(correct, q) {
-  const box = document.getElementById("feedback-box");
-  const title = document.getElementById("fb-title");
-  const body = document.getElementById("fb-body");
-  const en = document.getElementById("fb-en");
-  if (correct) {
-    box.className = "feedback-box correct-fb show";
-    title.innerHTML = "✅ Uitstekend! Well done!";
-    body.innerHTML = q.explain_af || "";
-    en.innerHTML = q.explain_en ? `🇬🇧 ${q.explain_en}` : "";
+// =============================================
+// FEEDBACK — trilingual
+// =============================================
+function showFB(ok,q){
+  var fb=document.getElementById('fbBox');
+  var fbt=document.getElementById('fbTitle');
+  var fbs=document.getElementById('fbSections');
+  if(ok){
+    fb.className='fb fbok show';
+    fbt.innerHTML='\u2705 Uitstekend! Well done! \u505A\u5F97\u597D\uFF01';
   } else {
-    box.className = "feedback-box wrong-fb show";
-    title.innerHTML = `❌ Nie heeltemal reg nie. Die korrekte antwoord is: <strong>${q.correct}</strong>`;
-    body.innerHTML = q.explain_af || "";
-    en.innerHTML = q.explain_en ? `🇬🇧 ${q.explain_en}` : "";
+    fb.className='fb fbno show';
+    if(q.type==='match') fbt.innerHTML='\u274C Nie alles reg nie / Not all correct';
+    else if(q.type==='sentence') fbt.innerHTML='\u274C Probeer weer volgende keer! / Try again next time!';
+    else fbt.innerHTML='\u274C Die antwoord is: <b>'+q.ans+'</b>';
   }
-  document.getElementById("next-btn").className = "next-btn show";
+  var sections='';
+  if(q.af) sections+='<div class="fb-section fb-af"><span class="fb-lang fb-lang-af">Afrikaans</span>'+q.af+'</div>';
+  if(q.zh) sections+='<div class="fb-section fb-zh"><span class="fb-lang fb-lang-zh">\u4E2D\u6587 Chinese</span>'+q.zh+'</div>';
+  if(q.en) sections+='<div class="fb-section fb-en"><span class="fb-lang fb-lang-en">English</span>'+q.en+'</div>';
+  fbs.innerHTML=sections;
+  document.getElementById('nxtBtn').classList.add('show');
 }
 
-function nextQuestion() {
-  qIndex++;
-  if (qIndex >= questions.length) {
-    showScore();
-  } else {
-    renderQuestion();
-  }
+function showScore(){
+  showScreen('done');var total=qs.length;
+  document.getElementById('fscore').textContent=sc;
+  document.getElementById('ftotal').textContent='/'+total;
+  var pct=sc/total,msg,sub;
+  if(pct>=0.9){msg='\uD83C\uDF1F Fantasties! \u592A\u68D2\u4E86\uFF01';sub='Jy is n Afrikaans-ster! \u4F60\u662F Afrikaans \u4E4B\u661F\uFF01';}
+  else if(pct>=0.7){msg='\uD83D\uDC4F Goed gedaan! \u505A\u5F97\u597D\uFF01';sub='Oefen nog n bietjie! \u518D\u7DF4\u7FD2\u4E00\u4E0B\uFF01';}
+  else if(pct>=0.5){msg='\uD83D\uDCAA Mooi so! \u4E0D\u932F\uFF01';sub='Probeer weer! \u518D\u8A66\u4E00\u6B21\uFF01';}
+  else{msg='\uD83D\uDCDA Bly oefen! \u7E7C\u7E8C\u52A0\u6CB9\uFF01';sub='\u8B80\u4E00\u8B80\u89E3\u91CB\u518D\u8A66\u8A66\u3002Read the explanations and try again.';}
+  document.getElementById('smsg').textContent=msg;
+  document.getElementById('ssub').textContent=sub;
 }
 
-// ============================================================
-// SCORE
-// ============================================================
-function showScore() {
-  document.getElementById("quiz-screen").style.display = "none";
-  document.getElementById("score-screen").style.display = "";
-  const total = questions.length;
-  document.getElementById("final-score").textContent = score;
-  document.getElementById("final-total").textContent = `/${total}`;
-  const pct = score/total;
-  let msg, sub;
-  if (pct >= 0.9) { msg="🌟 Fantasties! Outstanding!"; sub="Jy is 'n Afrikaans-stêr! You're an Afrikaans star!"; }
-  else if (pct >= 0.7) { msg="👏 Goed gedaan! Well done!"; sub="Bly net oef — oefen nog 'n bietjie! Keep practising!"; }
-  else if (pct >= 0.5) { msg="💪 Mooi so! Not bad!"; sub="Probeer weer — jy kan dit! Try again — you've got this!"; }
-  else { msg="📚 Bly oefen! Keep studying!"; sub="Lees die verduidelikings en probeer weer. Read the explanations and try again."; }
-  document.getElementById("score-msg").textContent = msg;
-  document.getElementById("score-sub").textContent = sub;
-}
-
-// ============================================================
-// INIT
-// ============================================================
 renderTopics();
+document.getElementById('backbtn').addEventListener('click',function(){showScreen('topics')});
+document.getElementById('retryBtn').addEventListener('click',function(){startTopic(curTopic)});
+document.getElementById('menuBtn').addEventListener('click',function(){showScreen('topics')});
 </script>
 </body>
 </html>
